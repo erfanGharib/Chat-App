@@ -4,10 +4,10 @@ import { faSearch, faBars, faPen } from '@fortawesome/free-solid-svg-icons';
 import ChatItem from '../components/chat-item';
 import Menu from '../components/menu/menu';
 
-const SideBar = () => {
+const ChatSideBar = () => {
     return (
-        <div id='sidebar' className='border-r border-zinc-700 relative sm:w-2/6 text-neutral-400 bg-zinc-800 w-full sm:min-w-320 h-full'>
-            <div id='sidebar-header' className='z-10 w-full p-3 bg-zinc-800 top-0 sticky flex items-center justify-between'>
+        <div id='chat-sidebar' className='border-r side-bar'>
+            <div id='chat-sidebar-header' className='side-bar-header'>
                 <Menu />
                 <label htmlFor="search-box" className='h-11 w-full'>
                     <FontAwesomeIcon icon={faSearch} className='absolute font-light icon-c mt-3 ml-4'/>
@@ -36,4 +36,4 @@ const SideBar = () => {
         </div>
     );
 }
-export default SideBar;
+export default ChatSideBar;

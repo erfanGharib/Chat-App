@@ -45,6 +45,23 @@ code {
 .icon-c {
   @apply text-neutral-500;
 }
-.menu-items {
-  background: linear-gradient(297deg, rgb(49 49 49), rgb(64 64 64));
+.side-bar {
+  @apply border-zinc-700 relative sm:w-2/6 text-neutral-400 bg-zinc-800 w-full sm:min-w-320 sm:max-w-320 h-full;
+}
+.side-bar-header {
+  @apply z-10 w-full p-3 bg-zinc-800 top-0 sticky flex items-center justify-between;
+}
+.max-w-0 {
+  max-width: 0 !important;
+  min-width: 0 !important;
+}
+.primary-btn {
+  @apply bg-sky-500 hover:bg-sky-600 active:bg-sky-700;
+}
+
+.send-btn {
+  @apply primary-btn;
+}
+.send-btn > * {
+  @apply text-white;
 }

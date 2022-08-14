@@ -2,7 +2,6 @@ import React from 'react';
 
 const Avatar = props => {
     const {imageSrc, size} = props;
-    console.log(imageSrc);
     return (
         <div className={`avatar bg-gradient-to-t relative mr-3 max-h-${size} min-w-${size} max-w-${size} overflow-hidden h-14 from-emerald-600 to-emerald-300 rounded-full`}>
             {imageSrc === undefined ? 
