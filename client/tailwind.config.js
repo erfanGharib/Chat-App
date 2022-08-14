@@ -6,7 +6,7 @@ module.exports = {
     './*.js',
     './src/components/*.jsx',
     './src/*.svg',
-    './src/pages/**/**/*.{jsx,js}',
+    './src/components/**/*.{jsx,js}',
     './src/pages/**/*.{jsx,js}',
     './src/assets/icons/*.svg',
     './src/layout/*.js',
@@ -16,9 +16,12 @@ module.exports = {
     extend: {
       minWidth: {
         14: '3.5rem',
+        12: '3rem',
         320: '320px'
       },
       maxWidth: {
+        12: '3rem',
+        14: '3.5rem',
         320: '320px'
       },
     },

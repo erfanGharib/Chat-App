@@ -21,3 +21,30 @@ code {
 .f-center {
   @apply flex justify-center items-center;
 }
+.max-w-14 {
+  max-width: 3.5rem;
+}
+.min-w-14 {
+  min-width: 3.5rem;
+}
+.max-w-11 {
+  min-width: 2.8rem;
+}
+.min-w-11 {
+  min-width: 2.8rem;
+}
+.max-h-11 {
+  max-height: 2.8rem;
+}
+.chat-name {
+  @apply text-lg font-medium text-neutral-200;
+}
+.rounded-c {
+  @apply rounded-xl
+}
+.icon-c {
+  @apply text-neutral-500;
+}
+.menu-items {
+  background: linear-gradient(297deg, rgb(49 49 49), rgb(64 64 64));
+}
