@@ -1,35 +1,40 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFaceSmile, faMailBulk, faMicrochip, faMicrophone, faPaperclip, faPaperPlane, faSmile, faSmileBeam, faSmileWink, faVoicemail } from '@fortawesome/free-solid-svg-icons';
+import { faBell, faEllipsisVertical, faFaceSmile, faMicrophone, faPaperclip, faPaperPlane, faRing, faSearch, faTrash } from '@fortawesome/free-solid-svg-icons';
 import Avatar from '../components/avatar';
 import avatar_ from '../assets/avatar.jpg';
+import Menu from '../components/menu/menu';
 
 const Main = () => {
     const sendBtnRef = React.createRef();
-    const [messageBoxBtn, setMessageBoxBtn] = useState([faMicrophone,'']);
+    const [messageBoxBtn, setMessageBoxBtn] = useState([faMicrophone, '']);
     const displaySendBtn = e => {
-        if(e.target.value !== '') setMessageBoxBtn([faPaperPlane, 'send-btn']);
-        else setMessageBoxBtn([faMicrophone,'']);
+        if (e.target.value !== '') setMessageBoxBtn([faPaperPlane, 'send-btn']);
+        else setMessageBoxBtn([faMicrophone, '']);
     }
     return (
-        <main id='chat-part' className='sm:min-w-max min-w-0 w-0 overflow-hidden sm:w-3/4 bg-zinc-800'>
-            <div id='main-header' className='w-full h-16 border-b border-zinc-700'>
-                <div id='chat-info' className='f-center h-full w-40'>
+        <main id='chat-part' className='sm:min-w-max min-w-0 w-0 overflow-hidden sm:w-full bg-zinc-800'>
+            <div id='main-header' className='w-full h-16 border-b border-zinc-700 f-center-between'>
+                <div id='chat-info' className='f-center h-full w-40 m-0'>
                     <Avatar imageSrc={avatar_} size='11' />
                     <h3 className='chat-name'>Node js</h3>
                 </div>
-                <div>
-                    {/* <label htmlFor="search-box" className='h-5'>
-                        <FontAwesomeIcon icon={faSearch} className='absolute font-light text-neutral-500 mt-3 ml-4'/>
-                        <input 
-                            type="text" 
-                            name="search-box" 
-                            id="search-box" 
-                            placeholder='Search'
-                            className='rounded-xl  outline-none h-8 pb-1 text-md text-neutral-300 bg-transparent pl-12 placeholder:text-zinc-500 bg-neutral-700' 
-                        />
-                    </label> */}
-
+                <div className='w-20 h-full f-center mr-4'>
+                    <button className='default-btn'>
+                        <FontAwesomeIcon icon={faSearch} className='icon-c text-xl' />
+                    </button>
+                    
+                    <Menu 
+                        data={{
+                            ico: faEllipsisVertical,
+                            transformOrigin: 'origin-top-right',
+                            right: 'right-0',
+                            items: [
+                                {text_: 'Mute', ico: faBell},
+                                {text_: 'Delete Chat', ico: faTrash, color: 'text-rose-400'},
+                            ]
+                        }} 
+                    />
                 </div>
             </div>
 
@@ -41,11 +46,11 @@ const Main = () => {
                             <button>
                                 <FontAwesomeIcon icon={faFaceSmile} className='text-xl icon-c' />
                             </button>
-                            <input 
-                                type='text' 
+                            <input
+                                type='text'
                                 placeholder='Your Massage..'
                                 onInput={displaySendBtn}
-                                className='rtl ml-3 mb-0.5 text-neutral-300 bg-transparent outline-none w-11/12 placeholder:text-neutral-600' 
+                                className='rtl ml-3 mb-0.5 text-neutral-300 bg-transparent outline-none w-11/12 placeholder:text-neutral-600'
                             />
                             <button>
                                 <FontAwesomeIcon icon={faPaperclip} className='text-xl icon-c' />

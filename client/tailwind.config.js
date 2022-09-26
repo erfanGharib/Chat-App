@@ -10,6 +10,7 @@ module.exports = {
     './src/pages/**/*.{jsx,js}',
     './src/assets/icons/*.svg',
     './src/layout/*.js',
+    './src/layout/**/*.js',
   ],
   content: [],
   theme: {

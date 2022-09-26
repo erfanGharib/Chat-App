@@ -11,7 +11,7 @@ const ProfileSideBar = () => {
         <div ref={profileSideBarRef} id='profile-sidebar' className='transition-all duration-300 border-l side-bar overflow-hidden'>
             <div>
                 <div id='profile-sidebar-header' className='side-bar-header'>
-                    <button onClick={closeSideBar} className='py-3 px-4 mr-2 hover:bg-neutral-700 hover:bg-opacity-40 rounded-c'>
+                    <button onClick={closeSideBar} className='mr-2 default-btn'>
                         <FontAwesomeIcon icon={faXmark} size='lg' className='icon-c' />
                     </button>
                     <h1 className='text-xl text-neutral-200 mr-auto mb-1'>Profile</h1>
