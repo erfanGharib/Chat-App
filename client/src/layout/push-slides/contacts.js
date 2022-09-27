@@ -5,7 +5,8 @@ import { faSearch, faBars, faPen, faUser, faGear, faMoon, faBug } from '@fortawe
 const Contacts = () => {    
     return (
         <div id='contacts' className=''>
+            Contacts
         </div>
     );
 }
-export default ChatSideBar;
+export default Contacts;

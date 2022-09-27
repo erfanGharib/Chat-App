@@ -11,7 +11,7 @@ const SearchBox = () => {
                 name="search-box"
                 id="search-box"
                 placeholder='Search'
-                className='rounded-c w-full outline-none pb-1 text-md text-neutral-300 h-full bg-transparent pl-12 placeholder:text-zinc-500 bg-neutral-700'
+                className='rounded-c w-full outline-none pb-1 text-md text-neutral-300 h-full bg-lightMode_lightC pl-12 placeholder:text-zinc-500 dark:bg-darkMode_toLightC'
             />
         </label>
     );

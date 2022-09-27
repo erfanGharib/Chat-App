@@ -11,7 +11,7 @@ const Menu = ({data}) => {
             <button onClick={openMenu} className='default-btn mr-4'>
                 <FontAwesomeIcon icon={data.ico} size='lg' className='icon-c' />
             </button>
-            <ul ref={menuItemsRef} className={`opacity-0 scale-90 ${data.color} ${data.right} transition-all duration-200 invisible bg-neutral-700 absolute w-52 ${data.transformOrigin} top-12 justify-between flex-col shadow-lg p-2 rounded-c`}>
+            <ul ref={menuItemsRef} className={`bg-lightMode_lightC dark:bg-darkMode_toLightC opacity-0 scale-90 ${data.color} ${data.right} transition-transform duration-200 invisible absolute w-52 ${data.transformOrigin} top-12 justify-between flex-col shadow-md backdrop-blur-xl p-2 rounded-c`}>
                 {data.items.map(v => 
                     <MenuItems data={v} key={v.text_} />
                 )}

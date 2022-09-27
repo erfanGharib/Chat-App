@@ -1,20 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBell, faEllipsisVertical, faFaceSmile, faMicrophone, faPaperclip, faPaperPlane, faRing, faSearch, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faBell, faEllipsisVertical, faSearch, faTrash } from '@fortawesome/free-solid-svg-icons';
 import Avatar from '../components/avatar';
 import avatar_ from '../assets/avatar.jpg';
 import Menu from '../components/menu/menu';
+import bgImage from '../assets/bg.jpg';
+import MessageListItem from '../components/message-list-item';
+import MessageBox from '../components/message-box';
 
 const Main = () => {
-    const sendBtnRef = React.createRef();
-    const [messageBoxBtn, setMessageBoxBtn] = useState([faMicrophone, '']);
-    const displaySendBtn = e => {
-        if (e.target.value !== '') setMessageBoxBtn([faPaperPlane, 'send-btn']);
-        else setMessageBoxBtn([faMicrophone, '']);
-    }
     return (
-        <main id='chat-part' className='sm:min-w-max min-w-0 w-0 overflow-hidden sm:w-full bg-zinc-800'>
-            <div id='main-header' className='w-full h-16 border-b border-zinc-700 f-center-between'>
+        <main id='chat-part' className='sm:min-w-max min-w-0 w-0 overflow-hidden sm:w-full dark:bg-darkMode_lightC bg-lightMode_toLightC'>
+            <div id='main-header' className='w-full h-16 border-b dark:border-darkMode_toLightC border-lightMode_darkC f-center-between'>
                 <div id='chat-info' className='f-center h-full w-40 m-0'>
                     <Avatar imageSrc={avatar_} size='11' />
                     <h3 className='chat-name'>Node js</h3>
@@ -38,29 +35,12 @@ const Main = () => {
                 </div>
             </div>
 
-            <div className='w-full h-full bg-zinc-900'>
+            <div style={{boxShadow: '0 0 10px #22222222 inset', background: `url(${bgImage}) right`}} className='w-full h-full dark:bg-darkMode_lightC bg-lightMode_toLightC'>
                 <div className='w-full h-full max-w-xl mx-auto px-4'>
-                    <div style={{ height: 'calc(100% - 140px)' }} id='massage-list' className='w-full'></div>
-                    <div id='massage-box' className='h-20 w-full pb-5 pt-2 f-center-between'>
-                        <div className='bg-neutral-800 w-11/12 mr-2 py-3 px-4 rounded-c f-center-between'>
-                            <button>
-                                <FontAwesomeIcon icon={faFaceSmile} className='text-xl icon-c' />
-                            </button>
-                            <input
-                                type='text'
-                                placeholder='Your Massage..'
-                                onInput={displaySendBtn}
-                                className='rtl ml-3 mb-0.5 text-neutral-300 bg-transparent outline-none w-11/12 placeholder:text-neutral-600'
-                            />
-                            <button>
-                                <FontAwesomeIcon icon={faPaperclip} className='text-xl icon-c' />
-                            </button>
-                        </div>
-
-                        <button ref={sendBtnRef} className={`${messageBoxBtn[1]} w-14 rounded-c py-3.5 bg-neutral-800 transition-colors duration-300`}>
-                            <FontAwesomeIcon icon={messageBoxBtn[0]} className='text-xl icon-c' />
-                        </button>
+                    <div style={{ height: 'calc(100% - 140px)' }} id='massage-list' className='w-full overflow-y-auto flex flex-col justify-end'>
+                        <MessageListItem />
                     </div>
+                    <MessageBox />
                 </div>
             </div>
         </main>
