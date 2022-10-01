@@ -8,7 +8,7 @@ const MessageBox = () => {
     const emojiPickerRef = React.createRef();
     const messageInputRef = React.createRef();
     const sendBtnRef = React.createRef();
-
+    let text = '';
     const [messageBoxBtn, setMessageBoxBtn] = useState([faMicrophone, '']);
 
     const displaySendBtn = e => {
@@ -36,7 +36,8 @@ const MessageBox = () => {
                     >
                         <EmojiPicker 
                             height='350' 
-                            theme='auto' 
+                            theme='auto'
+                            lazyLoadEmojis
                             previewConfig={{ showPreview: false }} 
                             onEmojiClick={emoji => text += <img src={emoji.getImageUrl()} />} 
                         />

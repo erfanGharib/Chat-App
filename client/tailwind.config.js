@@ -17,15 +17,9 @@ module.exports = {
   theme: {
     extend: {
       minWidth: {
-        14: '3.5rem',
-        12: '3rem',
         320: '320px',
-        10: '2.3rem',
       },
       maxWidth: {
-        10: '2.3rem',
-        12: '3rem',
-        14: '3.5rem',
         320: '320px'
       },
       colors: {
@@ -36,6 +30,10 @@ module.exports = {
         lightMode_toLightC: '#f8f8f8',
         lightMode_lightC: 'rgb(237 237 237)',
         lightMode_darkC: 'rgb(230 230 230)',
+      },
+      backgroundImage: {
+        'darkThemePattern': "url('/src/assets/darkModeBg.jpg')",
+        'lightThemePattern': "url('/src/assets/lightModeBg.png')",
       }
     },
   },

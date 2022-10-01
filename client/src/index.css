@@ -92,3 +92,28 @@ code {
 .epr-emoji.epr-visible {
   @apply dark:hover:!bg-darkMode_toLightC;
 }
+#message-list {
+  box-shadow: '0 0 10px #22222222 inset';
+  background-size: cover;
+}
+.max-w-10 {
+  max-width: 2.5rem;
+}
+.max-w-12 {
+  max-width: 3rem;
+}
+.max-w-14 {
+  max-width: 3.5rem;
+}
+.min-w-10 {
+  min-width: 2.5rem;
+}
+.min-w-12 {
+  min-width: 3rem;
+}
+.min-w-14 {
+  min-width: 3.5rem;
+}
+#profile-sidebar {
+  transition: .3s;
+}
