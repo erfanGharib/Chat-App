@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import MenuItems from './menu-items';
+import MenuItems from './menuItems';
 
 const Menu = ({data}) => {
     // render all menuItems and menuIcon

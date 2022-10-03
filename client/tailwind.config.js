@@ -30,6 +30,7 @@ module.exports = {
         lightMode_toLightC: '#f8f8f8',
         lightMode_lightC: 'rgb(237 237 237)',
         lightMode_darkC: 'rgb(230 230 230)',
+        lightMode_toDarkC: 'rgb(212 212 212)',
       },
       backgroundImage: {
         'darkThemePattern': "url('/src/assets/darkModeBg.jpg')",
