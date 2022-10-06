@@ -1,7 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ProfileInfoExtra = ({data}) => {
-    console.log(data);
     return (
         <div className='p-3'>
             {

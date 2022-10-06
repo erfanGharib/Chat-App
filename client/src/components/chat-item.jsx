@@ -4,7 +4,7 @@ import Avatar from './avatar';
 const ChatItem = props => {
     const {IS_GROUP_CHAT} = props;
     return (
-        <div className='chat-item w-full p-2 rounded-c flex hover:bg-lightMode_lightC dark:hover:bg-darkMode_toLightC dark:hover:bg-opacity-50 hover:bg-opacity-70 cursor-pointer'>
+        <div className='chat-item w-full p-2 rounded-c flex hover:bg-lightMode_lightC dark-hover cursor-pointer'>
             <Avatar size='14' />
             <div id='info' style={{width:'calc(100% - 70px)'}}>
                 <div id='title' className='f-center-between'>

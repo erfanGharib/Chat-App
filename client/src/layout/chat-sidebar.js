@@ -1,29 +1,29 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faBug, faGear, faMoon, faPen, faUser } from '@fortawesome/free-solid-svg-icons';
 import ChatItem from '../components/chat-item';
 import PushSlide from './push-slides/push-slide';
 import Setting from './push-slides/setting';
 import Menu from '../components/menu/menu';
-import SearchBox from '../components/search-box';
+import ChatSidbarSearchBox from '../components/chatSidbarSearchBox';
 import Contacts from './push-slides/contacts';
+import { AppData } from '../App';
 
 const PushSlideContext = React.createContext();
 
 const ChatSideBar = () => {
-    const [DISPLAY_STATUS, set_DISPLAY_STATUS] = useState(false);
     const [IS_SETTING_PUSHSLIDE, set_IS_SETTING_PUSHSLIDE] = useState(true);
+    const {set_PROFILE_DISPLAY_STATUS} = useContext(AppData);
 
     const darkMode = e => {
         document.querySelector('html').classList.toggle('dark');
-
         const toggleInput = e.target.lastChild.querySelector('input');
 
         if(toggleInput !== null && !toggleInput.checked) toggleInput.checked = true;
         else toggleInput.checked = false;
     }
     const displayPushSlide = IS_SETTING_PUSHSLIDE => {
-        set_DISPLAY_STATUS(true)
+        set_PROFILE_DISPLAY_STATUS(true)
         set_IS_SETTING_PUSHSLIDE(IS_SETTING_PUSHSLIDE);
     };
 
@@ -43,7 +43,7 @@ const ChatSideBar = () => {
                             ]
                         }} 
                     />
-                    <SearchBox />
+                    <ChatSidbarSearchBox />
                 </div>
 
                 <div id='sidebar-messages' className='px-3'>
@@ -60,11 +60,9 @@ const ChatSideBar = () => {
                 </button>
             </div>
 
-            <PushSlideContext.Provider value={{set_DISPLAY_STATUS, DISPLAY_STATUS}}>
-                <PushSlide>
-                    {IS_SETTING_PUSHSLIDE ? <Setting /> : <Contacts />}
-                </PushSlide>
-            </PushSlideContext.Provider>
+            <PushSlide>
+                {IS_SETTING_PUSHSLIDE ? <Setting /> : <Contacts />}
+            </PushSlide>
         </div>
     );
 }

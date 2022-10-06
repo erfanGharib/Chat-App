@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { ContentLoadedContext } from '../App';
+import { AppData } from '../App';
 
 const Loading = () => {
-    const {contentLoaded} = useContext(ContentLoadedContext);
+    const {contentLoaded} = useContext(AppData);
     return (
         <>
             {

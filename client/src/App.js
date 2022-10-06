@@ -6,18 +6,30 @@ import ProfileSideBar from './layout/profile-sidebar';
 import Loading from './layout/loading';
 import { createContext, useState } from 'react';
 
-const ContentLoadedContext = createContext();
+const AppData = createContext();
 const App = () => {
   const [contentLoaded, setContentLoaded] = useState(false);
+  const [PUSH_SLIDE_DISPLAY_STATUS, set_PUSH_SLIDE_DISPLAY_STATUS] = useState(false);
+  const [PROFILE_DISPLAY_STATUS, set_PROFILE_DISPLAY_STATUS] = useState(false);
+
   return (
-    <ContentLoadedContext.Provider value={{contentLoaded, setContentLoaded}}>
+    <AppData.Provider 
+      value={{
+        contentLoaded, 
+        setContentLoaded,
+        PUSH_SLIDE_DISPLAY_STATUS, 
+        set_PUSH_SLIDE_DISPLAY_STATUS,
+        PROFILE_DISPLAY_STATUS, 
+        set_PROFILE_DISPLAY_STATUS
+      }}
+    >
       <Loading />
       <ChatSideBar />
       <Main />
       <ProfileSideBar />
-    </ContentLoadedContext.Provider>
+    </AppData.Provider>
   );
 }
 
 export default App;
-export { ContentLoadedContext }
+export { AppData }
