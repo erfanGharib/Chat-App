@@ -10,7 +10,7 @@ const Loading = () => {
             {
                 contentLoaded ? 
                 <></> :
-                <div id="loading" className='bg-darkMode_darkC absolute w-full h-full f-center z-20 bg-opacity-95'>
+                <div id="loading" className='overlay'>
                     <div className="f-center flex-col w-40">            
                         <FontAwesomeIcon icon={faCircleNotch} size='2x' className='animate-spin text-sky-500' />
                         <h3 className="mt-2 dark:text-darkMode_lightC text-lightMode_toLightC">Loading</h3>

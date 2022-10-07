@@ -49,7 +49,7 @@ code {
   @apply text-lg font-medium text-darkMode_toLightC dark:text-neutral-200;
 }
 .default-btn {
-  @apply hover:bg-lightMode_lightC dark-hover f-center rounded-c py-3 px-3 transition-colors duration-300;
+  @apply hover:bg-lightMode_lightC dark-hover f-center rounded-c py-2.5 px-3 transition-colors duration-300;
 }
 .rounded-c {
   @apply rounded-xl
@@ -60,8 +60,11 @@ code {
 .shadow-c {
   box-shadow: 0 0 10px #22222255 inset;
 }
+.border-c {
+  @apply border-lightMode_darkC dark:border-darkMode_toLightC;
+}
 .side-bar {
-  @apply dark:border-darkMode_toLightC border-lightMode_darkC relative sm:w-2/6 text-neutral-400 dark:bg-darkMode_lightC bg-lightMode_toLightC w-full sm:min-w-320 sm:max-w-320 h-full;
+  @apply relative border-c sm:w-2/6 text-neutral-400 dark:bg-darkMode_lightC bg-lightMode_toLightC w-full sm:min-w-320 sm:max-w-320 h-full;
 }
 .side-bar-header {
   @apply h-16 z-10 w-full p-3 dark:bg-darkMode_lightC bg-lightMode_toLightC top-0 flex items-center justify-between;
@@ -71,7 +74,7 @@ code {
   min-width: 0 !important;
 }
 .primary-btn {
-  @apply bg-sky-500 hover:bg-sky-600 active:bg-sky-700;
+  @apply bg-sky-500 hover:bg-sky-600 active:bg-sky-700 text-lightMode_lightC;
 }
 .send-btn > * {
   @apply text-sky-500;
@@ -124,5 +127,8 @@ code {
   transition: .3s;
 }
 .overlay {
-  background-image: linear-gradient(#00000000, #00000099 80%);
+  @apply absolute bg-darkMode_darkC w-full h-full f-center z-20 bg-opacity-90;
+}
+#reportBugForm > * {
+  @apply rounded-c w-full py-2 px-3 my-1
 }

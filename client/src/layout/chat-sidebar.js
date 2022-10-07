@@ -5,7 +5,7 @@ import ChatItem from '../components/chat-item';
 import PushSlide from './push-slides/push-slide';
 import Setting from './push-slides/setting';
 import Menu from '../components/menu/menu';
-import ChatSidbarSearchBox from '../components/chatSidbarSearchBox';
+import ChatSidbarSearchBox from '../components/chatSidebarSearchBox';
 import Contacts from './push-slides/contacts';
 import { AppData } from '../App';
 
@@ -13,7 +13,7 @@ const PushSlideContext = React.createContext();
 
 const ChatSideBar = () => {
     const [IS_SETTING_PUSHSLIDE, set_IS_SETTING_PUSHSLIDE] = useState(true);
-    const {set_PROFILE_DISPLAY_STATUS} = useContext(AppData);
+    const {set_PROFILE_DISPLAY_STATUS, set_REPORT_BUG_MODAL_DISPLAY_STATUS} = useContext(AppData);
 
     const darkMode = e => {
         document.querySelector('html').classList.toggle('dark');
@@ -28,7 +28,7 @@ const ChatSideBar = () => {
     };
 
     return (
-        <div id='chat-sidebar' className='z-10 border-r f-center overflow-hidden side-bar'>
+        <div id='chat-sidebar' className='border-r f-center overflow-hidden side-bar'>
             <div className='min-w-320 w-80 h-full transform translate-x-1/2'>
                 <div id='chat-sidebar-header' className='side-bar-header'>
                     <Menu 
@@ -39,7 +39,7 @@ const ChatSideBar = () => {
                                 {text_: 'Contacts', ico: faUser, func: () => displayPushSlide(false)},
                                 {text_: 'Setting', ico: faGear, func: () => displayPushSlide(true)},
                                 {text_: 'Dark Mode', ico: faMoon, func: darkMode, checkBox: true},
-                                {text_: 'Report Bug', ico: faBug},
+                                {text_: 'Report Bug', ico: faBug, func: () => set_REPORT_BUG_MODAL_DISPLAY_STATUS(true)},
                             ]
                         }} 
                     />

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
-const ChatSidbarSearchBox = () => {
+const ChatSidebarSearchBox = () => {
     const [SEARCH_BOX_STATUS, set_SEARCH_BOX_STATUS] = useState(false);
 
     return (
@@ -32,4 +32,4 @@ const ChatSidbarSearchBox = () => {
         </>
     );
 }
-export default ChatSidbarSearchBox;
+export default ChatSidebarSearchBox;
