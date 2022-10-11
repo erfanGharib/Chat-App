@@ -5,7 +5,7 @@ import { faBell } from "@fortawesome/free-regular-svg-icons";
 import ProfileInfoExtra from '../components/profile-sidebar/profileInfo-extra';
 import ProfileSharedMedia from '../components/profile-sidebar/profileSharedMedia';
 import ProfileInfo from '../components/profile-sidebar/profileInfo';
-import { AppData } from '../App';
+import { AppData } from '../pages/chatApp';
 
 const ProfileSideBar = () => {
     const {PROFILE_DISPLAY_STATUS, set_PROFILE_DISPLAY_STATUS} = useContext(AppData);

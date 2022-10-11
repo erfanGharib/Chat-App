@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { AppData } from '../App';
+import { AppData } from '../pages/chatApp';
 
 const Loading = () => {
     const {contentLoaded} = useContext(AppData);

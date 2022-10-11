@@ -132,3 +132,12 @@ code {
 #reportBugForm > * {
   @apply rounded-c w-full py-2 px-3 my-1
 }
+#signInForm > * {
+  @apply w-full mb-3 rounded-c;
+}
+input, select {
+  outline: none;
+}
+#confirmCode > input {
+  @apply w-1/4 h-14 p-3 rounded-c bg-transparent border border-c appearance-none text-center
+}

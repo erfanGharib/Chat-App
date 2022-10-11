@@ -7,7 +7,7 @@ import Setting from './push-slides/setting';
 import Menu from '../components/menu/menu';
 import ChatSidbarSearchBox from '../components/chatSidebarSearchBox';
 import Contacts from './push-slides/contacts';
-import { AppData } from '../App';
+import { AppData } from '../pages/chatApp';
 
 const PushSlideContext = React.createContext();
 

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import MessageListItem from '../components/main/message-list-item';
 import MessageBox from '../components/main/message-box';
-import { AppData } from '../App';
+import { AppData } from '../pages/chatApp';
 import MainHeader from '../components/main/mainHeader';
 
 const Main = () => {

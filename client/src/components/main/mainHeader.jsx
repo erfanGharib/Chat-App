@@ -4,7 +4,7 @@ import { faBell, faEllipsisVertical, faSearch, faTrash } from '@fortawesome/free
 import Avatar from '../avatar';
 import avatar_ from '../../assets/avatar.jpg';
 import Menu from '../menu/menu'; 
-import { AppData } from '../../App';
+import { AppData } from '../../pages/chatApp';
 import MainSearchBox from './mainSearchBox';
 
 const MainHeader = () => {
