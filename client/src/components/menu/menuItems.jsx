@@ -6,7 +6,7 @@ const MenuItems = ({data}) => {
     // get item data from 'data' param
     const {text_, func, ico, color, checkBox} = data;
     return (
-        <li onClick={func} role='button' htmlFor="small-toggle" className={`menu-item ${color} text-darkMode_lightC text-sm font-medium dark:text-neutral-200 z-10 py-1.5 px-2 rounded-c dark-hover items-center flex`}>
+        <li onClick={func} role='button' htmlFor="small-toggle" className={`menu-item ${color} text-darkMode_lightC text-sm font-medium dark:text-neutral-200 z-10 py-1.5 px-2 rounded-c hover items-center flex`}>
             <FontAwesomeIcon icon={ico} className={`${color} text-neutral-400 mr-3`} />
             {text_}
             {checkBox ? 

@@ -27,6 +27,9 @@ code {
 .f-start {
   @apply flex justify-start items-center;
 }
+.f-items-start {
+  @apply flex justify-center items-start;
+}
 .max-w-14 {
   max-width: 3.5rem;
 }
@@ -42,14 +45,14 @@ code {
 .max-h-11 {
   max-height: 2.8rem;
 }
-.dark-hover {
-  @apply dark:hover:bg-darkMode_toLightC dark:hover:bg-opacity-50;
+.hover {
+  @apply dark:hover:bg-darkMode_toLightC hover:bg-opacity-50 hover:bg-lightMode_lightC;
 }
 .chat-name {
   @apply text-lg font-medium text-darkMode_toLightC dark:text-neutral-200;
 }
 .default-btn {
-  @apply hover:bg-lightMode_lightC dark-hover f-center rounded-c py-2.5 px-3 transition-colors duration-300;
+  @apply hover:bg-lightMode_lightC hover f-center rounded-c py-2.5 px-3 transition-colors duration-300;
 }
 .rounded-c {
   @apply rounded-xl
@@ -140,4 +143,7 @@ input, select {
 }
 #confirmCode > input {
   @apply w-1/4 h-14 p-3 rounded-c bg-transparent border border-c appearance-none text-center
+}
+.sidebar-section {
+  @apply bg-lightMode_toLightC dark:bg-darkMode_lightC shadow-sm;
 }

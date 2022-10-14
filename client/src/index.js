@@ -3,10 +3,6 @@ import ReactDOM, { createRoot } from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-// import { store } from './store/store';
-// import { Provider } from 'react-redux';
-// import { render } from 'express/lib/response';
-// import Provider
 
 const root = createRoot(document.getElementById('root'));
 root.render(<App />)

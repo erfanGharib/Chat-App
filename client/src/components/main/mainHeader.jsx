@@ -15,7 +15,7 @@ const MainHeader = () => {
         <div id='main-header' className='f-center relative dark:bg-darkMode_lightC bg-lightMode_toLightC w-full h-16 border-b border-c f-center-between'>
             <MainSearchBox state={{SEARCH_BOX_STATUS, set_SEARCH_BOX_STATUS}} />
 
-            <div onClick={() => set_PROFILE_DISPLAY_STATUS(true)} id='chat-info' className='f-start pl-4 h-full w-full mr-4 hover:bg-lightMode_lightC cursor-pointer dark-hover'>
+            <div onClick={() => set_PROFILE_DISPLAY_STATUS(true)} id='chat-info' className='f-start pl-4 h-full w-full mr-4 hover:bg-lightMode_lightC cursor-pointer hover'>
                 <Avatar imageSrc={avatar_} size='11' />
                 <h3 className='chat-name'>Node js</h3>
             </div>

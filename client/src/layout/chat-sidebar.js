@@ -13,7 +13,7 @@ const PushSlideContext = React.createContext();
 
 const ChatSideBar = () => {
     const [IS_SETTING_PUSHSLIDE, set_IS_SETTING_PUSHSLIDE] = useState(true);
-    const {set_PROFILE_DISPLAY_STATUS, set_REPORT_BUG_MODAL_DISPLAY_STATUS} = useContext(AppData);
+    const {set_PUSH_SLIDE_DISPLAY_STATUS, set_REPORT_BUG_MODAL_DISPLAY_STATUS} = useContext(AppData);
 
     const darkMode = e => {
         document.querySelector('html').classList.toggle('dark');
@@ -23,7 +23,7 @@ const ChatSideBar = () => {
         else toggleInput.checked = false;
     }
     const displayPushSlide = IS_SETTING_PUSHSLIDE => {
-        set_PROFILE_DISPLAY_STATUS(true)
+        set_PUSH_SLIDE_DISPLAY_STATUS(true)
         set_IS_SETTING_PUSHSLIDE(IS_SETTING_PUSHSLIDE);
     };
 

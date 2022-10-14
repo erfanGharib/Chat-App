@@ -3,7 +3,7 @@ import Avatar from '../avatar.jsx';
 const ProfileSharedMedia = props => {
     const {members = null, medias = null} = props;
     return (
-        <div id='profileSidebar-sharedMedia' className='shadow-md border-b mt-2 bg-lightMode_lightC dark:bg-darkMode_lightC dark:border-b-darkMode_lightC border-b-lightMode_darkC'>
+        <div id='profileSidebar-sharedMedia' className='shadow-sm border-b mt-2 bg-lightMode_toLightC dark:bg-darkMode_lightC dark:border-b-darkMode_lightC border-b-lightMode_darkC'>
             <div className='w-full h-12 flex border-b dark:border-darkMode_darkC border-lightMode_darkC z-10'>
                 <button className='border-b-2 px-3 border-b-sky-500'>Media</button>
                 <button className='px-3'>Members</button>

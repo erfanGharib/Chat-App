@@ -6,5 +6,5 @@
 6. setting pushSlide
 7. contact pushSlide
 8. report bug modal ✔
-9. singIn page
+9. singIn page ✔
 10. chatSidebar search
