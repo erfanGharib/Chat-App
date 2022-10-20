@@ -1,11 +1,13 @@
 import React from 'react';
-import ReactDOM, { createRoot } from 'react-dom/client';
+import { createRoot } from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+// export const baseURL = window.location.host;
+export const baseURL = 'http://localhost:5000';
 
 const root = createRoot(document.getElementById('root'));
-root.render(<App />)
+root.render(<App />);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
