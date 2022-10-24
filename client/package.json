@@ -2,7 +2,7 @@
   "name": "chat-app",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:4000",
+  "proxy": "http://localhost:5000",
   "dependencies": {
     "@fortawesome/free-brands-svg-icons": "^6.2.0",
     "@fortawesome/free-regular-svg-icons": "^6.2.0",
@@ -17,6 +17,7 @@
     "emoji-picker-react": "^4.0.3",
     "express": "^4.18.2",
     "helmet": "^6.0.0",
+    "npm-watch": "^0.11.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.4.2",
@@ -25,11 +26,20 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "watch": "npm-watch",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "b:css": "npx tailwindcss -i src/index.css -o src/assets/styles/tailwind.css -w --minify"
+  },
+  "watch": {
+    "build": {
+      "patterns": [
+        "src"
+      ],
+      "extensions": "js,jsx"
+    }
   },
   "eslintConfig": {
     "extends": [

@@ -17,13 +17,13 @@ const MessageListItem = ({data}) => {
     return (
         <div style={{ height: 'calc(100% - 140px)' }} id='massage-list' className='w-full overflow-y-auto flex flex-col justify-end'>
             {
-                data.map(({userName, messageText, messageMeta, chatType}) => {
+                data.map(({userName, messageText, messageMeta, chatType}, i) => {
                     const className_ = chatType === 0 ? 
                     '!rounded-br-none dark:bg-sky-600 bg-sky-800 text-lightMode_toLightC' :
                     '!rounded-bl-none dark:bg-darkMode_lightC bg-lightMode_toLightC';
 
                     return (
-                        <div className={`flex w-full items-end my-1 drop-shadow-lg ${chatType === 0 ? 'justify-end' : ''}`}>
+                        <div key={`message ${i}`} className={`flex w-full items-end my-1 drop-shadow-lg ${chatType === 0 ? 'justify-end' : ''}`}>
                             {chatType === 2 ? <Avatar size='10' /> : <></>}
                             <div 
                                 className={`rounded-c p-2 relative ${className_}`}

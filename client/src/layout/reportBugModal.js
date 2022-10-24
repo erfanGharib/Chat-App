@@ -7,32 +7,15 @@ import { baseURL } from '..';
 
 const ReportBugModal = () => {
     const { REPORT_BUG_MODAL_DISPLAY_STATUS, set_REPORT_BUG_MODAL_DISPLAY_STATUS } = useContext(AppData);
-    const reportBugForm = React.useRef();
+    const reportBugForm = React.createRef();
 
-    // let arr = []; 
-    // Object.values(reportBugForm.current).map((v, i) => {
-    //     arr[i] = v.value; 
-    // })
-    // console.log(arr);
-    const sendReportBugData = () => {
-        axios({
-            method: 'post',
-            headers: {
-                'Content-Type':'application/json',
-            },
-            url: `${baseURL}/api/reportbug`,
-            body: JSON.stringify({name: 'erfan'})
-        })
-        .then(json => console.log(json))
-        // axios
-        // .post(`${baseURL}/api/reportbug`, {
-        //     body: (
-        //         Object.values(reportBugForm.current).map((v, i) => {
-        //             if (i < 4) return v.value;
-        //         })
-        //     )
-        // })
-    }
+    // const sendReportBugData = () => {
+    //     axios.post(
+    //         `${baseURL}/api/reportbug`,
+    //         Object.values(reportBugForm.current).map(v => v.value.trim()).splice(0,4)
+    //     )
+    //     .then(res => console.log(res))
+    // }
 
     return (
         REPORT_BUG_MODAL_DISPLAY_STATUS ?
@@ -48,15 +31,31 @@ const ReportBugModal = () => {
                         </button>
                     </div>
 
-                    <form id='reportBugForm' className='py-2 px-3' ref={reportBugForm}>
-                        <input className='shadow-sm' type="text" id='reportBugEmailField' placeholder='Email' />
-                        <input className='shadow-sm' type="text" id='reportBugSubjectField' placeholder='Subject' />
-                        <textarea className='shadow-sm' cols="30" rows="10" placeholder='Describe bug..' id='reportBugDescribeField'></textarea>
-                        <input type="file" id='reportBugEmailField' />
-                        <button
-                            className='primary-btn'
-                            onClick={e => {e.preventDefault(); sendReportBugData()}}
-                        >Report</button>
+                    {/* <form ref={reportBugForm} action="/api/reportbug" encType="multipart/form-data" method="post">
+                        <div class="form-group">
+                            <input type="file" class="form-control-file" name="uploaded_file" />
+                            <input type="text" class="form-control" placeholder="Number of speakers" name="nspeakers" />
+                            <input type="submit" value="Get me the stats!" class="btn btn-default" />            
+                        </div>
+                    </form> */}
+                    <form action='/api/reportbug' method='post' className='py-2 px-3' ref={reportBugForm} encType='multipart/form-data'>
+                        <div class="form-group">
+                            <input className='shadow-sm' type="text" placeholder='Email' />
+                            <input className='shadow-sm' type="text" placeholder='Subject' />
+                            <textarea className='shadow-sm' cols="30" rows="10" placeholder='Describe bug..'></textarea>
+                            <input 
+                                className="block w-full text-sm text-gray-900 rounded-c border-c border cursor-pointer dark:text-darkMode_lightC focus:outline-none dark:placeholder-gray-400" 
+                                type="file" 
+                                name="uploaded_file"
+                            />
+
+                            <input
+                                className='primary-btn'
+                                type='submit'
+                                value='Report'
+                                // onClick={e => { e.preventDefault(); sendReportBugData() }}
+                            />
+                        </div>
                     </form>
                 </div>
             </div> :

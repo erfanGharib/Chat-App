@@ -12,9 +12,9 @@ const ProfileSharedMedia = props => {
             <ul>
                 {
                     medias === null ?
-                    members.map(({userName, seenTime}) => {
+                    members.map(({userName, seenTime}, i) => {
                         return (
-                            <li className='h-16 w-full items-center text-darkMode_toLightC dark:text-lightMode_toDarkC flex p-3 hover:bg-lightMode_toLightC'>
+                            <li key={`user ${i}`} className='h-16 w-full items-center text-darkMode_toLightC dark:text-lightMode_toDarkC flex p-3 hover:bg-lightMode_toLightC'>
                                 <Avatar size='10' />
                                 <div className='w-full flex-col flex'>
                                     <h4 className='font-medium h-5'>{userName}</h4>

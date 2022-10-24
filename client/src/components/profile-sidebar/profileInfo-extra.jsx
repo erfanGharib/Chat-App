@@ -6,7 +6,7 @@ const ProfileInfoExtra = ({data}) => {
             {
                 data.map(({ico, value, label = ''}) => {
                     return (
-                        <div className='w-full f-center-between'>
+                        <div className='w-full f-center-between' key={label}>
                             <FontAwesomeIcon 
                                 icon={ico} 
                                 size='xl' 

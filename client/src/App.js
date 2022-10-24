@@ -6,15 +6,15 @@ import SignIn from "./pages/signIn";
 import { useEffect } from "react";
 
 const App = () => {
-  useEffect(() => {
-    const fetchResource = async () => {
-      const response = await fetch("/");
-      const responseVal = await response.text();
-      console.log(responseVal);
-    };
+  // useEffect(() => {
+  //   const fetchResource = async () => {
+  //     const response = await fetch("http://localhost:5000/");
+  //     const responseVal = await response.text();
+  //     console.log(responseVal);
+  //   };
   
-    fetchResource();
-  }, []);
+  //   fetchResource();
+  // }, []);
 
   return (
     <BrowserRouter>

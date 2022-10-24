@@ -4,7 +4,7 @@ import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 const MainSearchBox = ({ state }) => {
     const {SEARCH_BOX_STATUS, set_SEARCH_BOX_STATUS} = state;
-    console.log(SEARCH_BOX_STATUS);
+    // console.log(SEARCH_BOX_STATUS);
     return (
         <label
             htmlFor='search-box'
