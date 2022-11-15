@@ -6,7 +6,7 @@ const transporter = nodemailer.createTransport({
         pass: 'cxoblxhwznpfgrym',
     }
 });
-const sendMail = ({ targetEmail = 'erfan.gh.work@gmail.com', reqBody }) => {
+const sendMail = ({ targetEmail = 'erfan.gh.work@gmail.com', req }) => {
     const [senderEmail, subject, text] = req.body;
     const mailOption = {
         from: 'Chat App <noreply.erfan.gh.work@gmail.com>',
@@ -23,7 +23,7 @@ const sendMail = ({ targetEmail = 'erfan.gh.work@gmail.com', reqBody }) => {
                         src='https://fps.cdnpk.net/landings-paid/23022022/backgrounds/img-product-1.webp'
                     >
                     <a 
-                        href="${req.hostname}/api/reportbug/bugfixed/${bugCode}"
+                        href="${req.hostname}/api/reportbug/bugfixed/${req.params.bugCode}"
                         target="_blank"
                         style="text-decoration: none;font-size: 12pt; padding: 10px 20px; background: #24d68c; width: 120px; height: 35px; color: #095c39;"
                     >

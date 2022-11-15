@@ -1,8 +1,8 @@
 const { Router } = require('express');
 const router = Router();
-const { reportBug, bugfixed } = require('../routes/reportBug');
+const { reportBug, bugfixed } = require('./reportBug');
 const bodyParser = require('body-parser');
-const fileUpload = require('../routes/fileUpload');
+const fileUpload = require('./fileUpload');
 
 router
     .post('/upload', bodyParser.raw({ type: ["image/jpeg", "image/png"], limit: "5mb" }), fileUpload)
