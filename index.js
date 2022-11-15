@@ -31,7 +31,7 @@ app
         */
         let status = 200;
         // if (params.url !== '' || params.url !== 'signin') status = 404;
-        res.send('hello brother');
+        res.sendFile(__dirname + '/client/build/index.html');
     })
     // .get('createdb', (req, res) => {
     //     let sql = 'CREATE DATABASE nodemysql';
