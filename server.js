@@ -22,7 +22,7 @@ app
     .use(cors({ origin: "http://localhost:" + PORT }))
     .use(express.urlencoded({ extended: true }))
     .use(express.json())
-    .get('/:url', ({ params, socket }, res) => {
+    .get('/', ({ params, socket }, res) => {
         // console.log(socket.localAddress); // get user ip (localhost: 0:0:0:0:0:0:0:1 || ::1)
         
         /*
@@ -30,7 +30,6 @@ app
          * because we are using Client Side Rendering (CSR)
         */
         let status = 200;
-        console.log(params.url);
         // if (params.url !== '' || params.url !== 'signin') status = 404;
         res.status(status).sendFile(__dirname + '/client/build/index.html');
     })
