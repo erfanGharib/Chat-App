@@ -19,7 +19,7 @@ const filesRoute = require('./src/routes/files');
 // });
 
 app
-    .use(cors({ origin: "http://localhost:" + PORT }))
+    // .use(cors({ origin: "http://localhost:" + PORT }))
     .use(express.urlencoded({ extended: true }))
     .use(express.json())
     .get('/', ({ params, socket }, res) => {
@@ -31,15 +31,15 @@ app
         */
         let status = 200;
         // if (params.url !== '' || params.url !== 'signin') status = 404;
-        res.status(status).sendFile(__dirname + '/client/build/index.html');
+        res.send('hello brother');
     })
-    .get('createdb', (req, res) => {
-        let sql = 'CREATE DATABASE nodemysql';
-        con.query(sql, (err, result) => {
-            if (err) throw err;
-            res.send('database created')
-        })
-    })
+    // .get('createdb', (req, res) => {
+    //     let sql = 'CREATE DATABASE nodemysql';
+    //     con.query(sql, (err, result) => {
+    //         if (err) throw err;
+    //         res.send('database created')
+    //     })
+    // })
     .use(express.static(__dirname + '/client/build'))
     .use('/api', initRoute)
     .use(filesRoute)
