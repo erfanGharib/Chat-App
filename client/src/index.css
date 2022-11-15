@@ -133,7 +133,7 @@ code {
   @apply absolute bg-darkMode_darkC w-full h-full f-center z-20 bg-opacity-90;
 }
 #reportBugForm > * {
-  @apply rounded-c w-full py-2 px-3 my-1
+  @apply rounded-c w-full py-2 px-3 my-1 border-neutral-100 border overflow-hidden
 }
 #signInForm > * {
   @apply w-full mb-3 rounded-c;

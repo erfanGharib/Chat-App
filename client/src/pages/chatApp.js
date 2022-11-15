@@ -7,9 +7,11 @@ import ReportBugModal from '../layout/reportBugModal';
 
 const AppData = createContext();
 const ChatApp = () => {
+  // when domContent loaded this became true - and stop showing loading page
   const [contentLoaded, setContentLoaded] = useState(false);
   const [PUSH_SLIDE_DISPLAY_STATUS, set_PUSH_SLIDE_DISPLAY_STATUS] = useState(false);
   const [PROFILE_DISPLAY_STATUS, set_PROFILE_DISPLAY_STATUS] = useState(false);
+  // display and hide reportBugModal
   const [REPORT_BUG_MODAL_DISPLAY_STATUS, set_REPORT_BUG_MODAL_DISPLAY_STATUS] = useState(false);
 
   return (

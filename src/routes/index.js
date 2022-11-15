@@ -1,15 +1,14 @@
 const { Router } = require('express');
 const router = Router();
-const { upload, getFilesList, download } = require('../controller/file.controller');
-const reportBug = require('../routes/reportBug');
+const { reportBug, bugfixed } = require('../routes/reportBug');
+const bodyParser = require('body-parser');
+const fileUpload = require('../routes/fileUpload');
 
 router
-    .post('/upload', upload)
-    .get('/file', getFilesList)
-    .get('/file/:name', download)
-    .post('/reportbug', reportBug);
-
-//     app.use(router);
-// }
+    .post('/upload', bodyParser.raw({ type: ["image/jpeg", "image/png"], limit: "5mb" }), fileUpload)
+    // .get('/file', getFilesList)
+    // .get('/file/:name', download)
+    .post('/reportbug', reportBug)
+    .get('/reportbug/bugfixed/:id', bugfixed)
 
 module.exports = router;

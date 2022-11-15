@@ -1,21 +1,31 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClose } from '@fortawesome/free-solid-svg-icons';
 import { AppData } from '../pages/chatApp';
 import axios from 'axios';
 import { baseURL } from '..';
+import sendFile from '../middleware/sendFile'; 
 
 const ReportBugModal = () => {
     const { REPORT_BUG_MODAL_DISPLAY_STATUS, set_REPORT_BUG_MODAL_DISPLAY_STATUS } = useContext(AppData);
     const reportBugForm = React.createRef();
+    // set file when user choosed one
+    const [file, setFile] = useState('');
 
-    // const sendReportBugData = () => {
-    //     axios.post(
-    //         `${baseURL}/api/reportbug`,
-    //         Object.values(reportBugForm.current).map(v => v.value.trim()).splice(0,4)
-    //     )
-    //     .then(res => console.log(res))
-    // }
+    /** 
+     * send text data using @sendReportBugData
+     * send file using @sendFile
+     * two saparate api
+    */
+    const sendReportBugData = e => {
+        axios.post(
+            `${baseURL}/api/reportbug`,
+            Object.values(reportBugForm.current).map(v => v.value).splice(0, 3)
+        )
+        .then(res => console.log(res));
+
+        sendFile(e, file);
+    }
 
     return (
         REPORT_BUG_MODAL_DISPLAY_STATUS ?
@@ -30,32 +40,30 @@ const ReportBugModal = () => {
                             <FontAwesomeIcon icon={faClose} size={'lg'} className='icon-c' />
                         </button>
                     </div>
+                    
+                    <form
+                        className='py-2 px-3'
+                        id='reportBugForm'
+                        ref={reportBugForm}
+                        encType='multipart/form-data'
+                    >
+                        <input className='shadow-sm' type="text" placeholder='Email' />
+                        <input className='shadow-sm' type="text" placeholder='Subject' />
+                        <textarea className='shadow-sm' cols="30" rows="10" placeholder='Describe bug..'></textarea>
+                        <input
+                            onChange={e => setFile(e.target.files[0])}
+                            className="block w-full text-sm text-gray-900 rounded-c border-c border cursor-pointer dark:text-darkMode_lightC focus:outline-none dark:placeholder-gray-400"
+                            type="file"
+                            name="uploaded_file"
+                            accept="image/png, image/gif, image/jpeg"
+                        />
 
-                    {/* <form ref={reportBugForm} action="/api/reportbug" encType="multipart/form-data" method="post">
-                        <div class="form-group">
-                            <input type="file" class="form-control-file" name="uploaded_file" />
-                            <input type="text" class="form-control" placeholder="Number of speakers" name="nspeakers" />
-                            <input type="submit" value="Get me the stats!" class="btn btn-default" />            
-                        </div>
-                    </form> */}
-                    <form action='/api/reportbug' method='post' className='py-2 px-3' ref={reportBugForm} encType='multipart/form-data'>
-                        <div class="form-group">
-                            <input className='shadow-sm' type="text" placeholder='Email' />
-                            <input className='shadow-sm' type="text" placeholder='Subject' />
-                            <textarea className='shadow-sm' cols="30" rows="10" placeholder='Describe bug..'></textarea>
-                            <input 
-                                className="block w-full text-sm text-gray-900 rounded-c border-c border cursor-pointer dark:text-darkMode_lightC focus:outline-none dark:placeholder-gray-400" 
-                                type="file" 
-                                name="uploaded_file"
-                            />
-
-                            <input
-                                className='primary-btn'
-                                type='submit'
-                                value='Report'
-                                // onClick={e => { e.preventDefault(); sendReportBugData() }}
-                            />
-                        </div>
+                        <input
+                            className='primary-btn'
+                            type='button'
+                            value='Report'
+                            onClick={sendReportBugData}
+                        />
                     </form>
                 </div>
             </div> :
