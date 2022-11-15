@@ -30,8 +30,8 @@ app
          * because we are using Client Side Rendering (CSR)
         */
         let status = 200;
-        if (params.url !== '' || params.url !== 'signin') status = 404;
-        
+        console.log(params.url);
+        // if (params.url !== '' || params.url !== 'signin') status = 404;
         res.status(status).sendFile(__dirname + '/client/build/index.html');
     })
     .get('createdb', (req, res) => {
