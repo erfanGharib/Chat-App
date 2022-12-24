@@ -3,7 +3,6 @@ import "typeface-spartan";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ChatApp from "./pages/chatApp";
 import SignIn from "./pages/signIn";
-import { useEffect } from "react";
 
 const App = () => {
   // useEffect(() => {

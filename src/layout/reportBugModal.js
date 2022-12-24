@@ -31,25 +31,25 @@ const ReportBugModal = () => {
         REPORT_BUG_MODAL_DISPLAY_STATUS ?
             <div className='overlay'>
                 <div id='ReportBugModal' className='w-80 dark:bg-darkMode_lightC bg-lightMode_toLightC rounded-c'>
-                    <div className='f-center-between w-full h-14 border-c border-b p-2'>
+                    <div className='f-center-between w-full h-14 border-c p-2'>
                         <h3 className='ml-2'>Report Bug</h3>
-                        <button
+                        <span
                             className='default-btn'
                             onClick={() => set_REPORT_BUG_MODAL_DISPLAY_STATUS(false)}
                         >
                             <FontAwesomeIcon icon={faClose} size={'lg'} className='icon-c' />
-                        </button>
+                        </span>
                     </div>
                     
                     <form
-                        className='py-2 px-3'
+                        className='pb-2 px-3 f-start flex-col'
                         id='reportBugForm'
                         ref={reportBugForm}
                         encType='multipart/form-data'
                     >
-                        <input className='shadow-sm' type="text" placeholder='Email' />
-                        <input className='shadow-sm' type="text" placeholder='Subject' />
-                        <textarea className='shadow-sm' cols="30" rows="10" placeholder='Describe bug..'></textarea>
+                        <input type="text" placeholder='Email' />
+                        <input type="text" placeholder='Subject' className='!mb-0 !rounded-b-none' />
+                        <textarea cols="30" rows="10" placeholder='Describe bug..' className='!mt-0 !border-t-0 !rounded-t-none' ></textarea>
                         <input
                             onChange={e => setFile(e.target.files[0])}
                             className="block w-full text-sm text-gray-900 rounded-c border-c border cursor-pointer dark:text-darkMode_lightC focus:outline-none dark:placeholder-gray-400"
@@ -58,12 +58,13 @@ const ReportBugModal = () => {
                             accept="image/png, image/gif, image/jpeg"
                         />
 
-                        <input
-                            className='primary-btn'
-                            type='button'
-                            value='Report'
+                        <span
+                            className='primary-btn w-full block text-center'
+                            role='button'
                             onClick={sendReportBugData}
-                        />
+                        >
+                            Report
+                        </span>
                     </form>
                 </div>
             </div> :

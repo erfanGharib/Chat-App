@@ -1,10 +1,21 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AppData } from '../pages/chatApp';
 import Avatar from './avatar';
 
 const ChatItem = props => {
     const {IS_GROUP_CHAT} = props;
+    const {setCurrentChat, screenWidth} = useContext(AppData);
+
     return (
-        <div className='chat-item w-full p-2 rounded-c flex hover:bg-lightMode_lightC hover cursor-pointer'>
+        <div 
+            onClick={() => 
+                setCurrentChat({
+                    translate: 'translate-x-0',
+                    id: 0
+                })
+            } 
+            className='chat-item w-full p-2 rounded-c flex hover:bg-lightMode_lightC hover cursor-pointer'
+        >
             <Avatar size='14' />
             <div id='info' style={{width:'calc(100% - 70px)'}}>
                 <div id='title' className='f-center-between'>

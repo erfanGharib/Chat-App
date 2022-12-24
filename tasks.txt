@@ -2,9 +2,10 @@
 2. profile sidebar ✔
 3. chat searchBox ✔
 4. chat messageBox ✔
-5. responsive
+5. responsive ✔
 6. setting pushSlide
 7. contact pushSlide
 8. report bug modal ✔
 9. singIn page ✔
 10. chatSidebar search
+11. load chat on mobile ✔

@@ -1,18 +1,12 @@
 import React, { useContext } from 'react';
-import { AppData } from '../pages/chatApp';
-import MainHeader from '../components/main/mainHeader';
-import MessageListItem from '../components/main/message-list-item';
-import MessageBox from '../components/main/message-box';
+import MessageListItem from './message-list-item';
+import MessageBox from './message-box';
+import { AppData } from '../../pages/chatApp';
 
-const Main = () => {
-    const { currentChat, setContentLoaded } = useContext(AppData);
-
+const ChatSection = () => {
+    const { setContentLoaded } = useContext(AppData);
     return (
-        <main 
-            onLoad={() => setContentLoaded(true)} 
-            className={`${currentChat.translate} sm:relative absolute top-0 transform md:transform-none  duration-300 flex flex-col dark:bg-darkThemePattern bg-lightThemePattern w-full sm:min-w-max h-full min-w-0 overflow-hidden dark:bg-darkMode_lightC bg-lightMode_toLightC`}
-        >
-            <MainHeader />
+        <section onLoad={() => setContentLoaded(true)} className='flex flex-col dark:bg-darkThemePattern bg-lightThemePattern w-full h-full' style={{height:'calc(100% - 4rem)'}}>
             <MessageListItem
                 data={[
                     {
@@ -37,7 +31,7 @@ const Main = () => {
                 ]}
             />
             <MessageBox />
-        </main>
+        </section>
     );
 }
-export default Main;
+export default ChatSection;

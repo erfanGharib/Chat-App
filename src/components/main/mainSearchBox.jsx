@@ -4,13 +4,13 @@ import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 const MainSearchBox = ({ state }) => {
     const {SEARCH_BOX_STATUS, set_SEARCH_BOX_STATUS} = state;
-    // console.log(SEARCH_BOX_STATUS);
+
     return (
         <label
             htmlFor='search-box'
             className={`${SEARCH_BOX_STATUS ? 'f-center' : 'hidden'} h-full w-full z-10 absolute p-3 bg-lightMode_toLightC dark:bg-darkMode_lightC`}
         >
-            <button 
+            <span 
                 onClick={() => set_SEARCH_BOX_STATUS(false)} 
                 className='absolute left-3 default-btn cursor-pointer'
             >
@@ -18,7 +18,7 @@ const MainSearchBox = ({ state }) => {
                     icon={faArrowLeft}
                     className='font-light icon-c'
                 />
-            </button>
+            </span>
             <input
                 type="text"
                 name="search-box"

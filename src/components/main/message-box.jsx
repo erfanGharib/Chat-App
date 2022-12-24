@@ -23,23 +23,23 @@ const MessageBox = () => {
     }
 
     return (
-        <div id='massage-box' className='h-20 w-full pb-5 pt-2 f-center-between'>
+        <div id='massage-box' className='h-20 w-full max-w-xl mx-auto pb-2 px-4 f-center-between'>
             <div className='dark:bg-darkMode_lightC shadow-lg bg-lightMode_toLightC w-11/12 mr-2 py-3 px-4 rounded-c f-center-between'>
                 <div id='emoji-picker' className='relative'>
-                    <button className='relative' onClick={displayEmojiPicker} onMouseEnter={displayEmojiPicker}>
+                    <span className='relative' onClick={displayEmojiPicker} onMouseEnter={displayEmojiPicker} onMouseLeave={displayEmojiPicker}>
                         <FontAwesomeIcon icon={faFaceSmile} className='text-xl icon-c' />
-                    </button>
+                    </span>
                     <span
                         ref={emojiPickerRef}
                         style={{ transform: 'translateX(-35px)' }}
-                        className='absolute transition-all duration-200 opacity-0 invisible bottom-11'
+                        className='absolute transition-all duration-200 opacity-0 invisible bottom-12'
                     >
                         <EmojiPicker 
-                            height='350' 
+                            height='340px' 
                             theme='auto'
                             lazyLoadEmojis
                             previewConfig={{ showPreview: false }} 
-                            onEmojiClick={emoji => text += <img src={emoji.getImageUrl()} />} 
+                            // onEmojiClick={emoji => text += <img src={emoji.getImageUrl()} />} 
                         />
                     </span>
                 </div>
@@ -52,14 +52,14 @@ const MessageBox = () => {
                     {text}
                     <span id='placeholder' className='text-neutral-400 dark:text-neutral-600'>Your Massage..</span>
                 </div>
-                <button>
+                <span>
                     <FontAwesomeIcon icon={faPaperclip} className='text-xl icon-c' />
-                </button>
+                </span>
             </div>
 
-            <button id='send-btn' ref={sendBtnRef} className={`${messageBoxBtn[1]} w-14 shadow-lg rounded-c py-3.5 dark:bg-darkMode_lightC bg-lightMode_toLightC transition-colors duration-50`}>
+            <span id='send-btn' ref={sendBtnRef} className={`${messageBoxBtn[1]} text-center w-14 shadow-lg rounded-c py-3.5 dark:bg-darkMode_lightC bg-lightMode_toLightC transition-colors duration-50`}>
                 <FontAwesomeIcon icon={messageBoxBtn[0]} className='text-xl icon-c' />
-            </button>
+            </span>
         </div>
     );
 }

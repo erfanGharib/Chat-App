@@ -9,8 +9,16 @@ const AppData = createContext();
 const ChatApp = () => {
   // when domContent loaded this became true - and stop showing loading page
   const [contentLoaded, setContentLoaded] = useState(false);
-  const [PUSH_SLIDE_DISPLAY_STATUS, set_PUSH_SLIDE_DISPLAY_STATUS] = useState(false);
+  const [pushSlideData, setPushSlideData] = useState({
+    translate: 'translate-x-0',
+    status: true
+  });
   const [PROFILE_DISPLAY_STATUS, set_PROFILE_DISPLAY_STATUS] = useState(false);
+  const [currentChat, setCurrentChat] = useState({
+    translate: 'translate-x-full',
+    id: 0,
+  });
+  const screenWidth = window.screen.width <= 768; 
   // display and hide reportBugModal
   const [REPORT_BUG_MODAL_DISPLAY_STATUS, set_REPORT_BUG_MODAL_DISPLAY_STATUS] = useState(false);
 
@@ -19,15 +27,17 @@ const ChatApp = () => {
       value={{
         contentLoaded, 
         setContentLoaded,
-        PUSH_SLIDE_DISPLAY_STATUS, 
-        set_PUSH_SLIDE_DISPLAY_STATUS,
+        pushSlideData, 
+        setPushSlideData,
         PROFILE_DISPLAY_STATUS, 
         set_PROFILE_DISPLAY_STATUS,
         REPORT_BUG_MODAL_DISPLAY_STATUS, 
-        set_REPORT_BUG_MODAL_DISPLAY_STATUS
+        set_REPORT_BUG_MODAL_DISPLAY_STATUS,
+        currentChat, setCurrentChat,
+        screenWidth
       }}
     >
-      <Loading />
+      {/* <Loading /> */}
       <ReportBugModal />
       <ChatSideBar />
       <Main />

@@ -6,21 +6,23 @@ import avatar_ from '../../assets/avatar.jpg';
 import Menu from '../menu/menu'; 
 import { AppData } from '../../pages/chatApp';
 import MainSearchBox from './mainSearchBox';
+import BackBtn from '../backBtn';
 
 const MainHeader = () => {
-    const {set_PROFILE_DISPLAY_STATUS} = useContext(AppData);
+    const {set_PROFILE_DISPLAY_STATUS, setCurrentChat, screenWidth } = useContext(AppData);
     const [SEARCH_BOX_STATUS, set_SEARCH_BOX_STATUS] = useState(false);
  
     return (
-        <div id='main-header' className='f-center relative dark:bg-darkMode_lightC bg-lightMode_toLightC w-full h-16 border-b border-c f-center-between'>
+        <div id='main-header' className='f-center relative dark:bg-darkMode_lightC bg-lightMode_toLightC w-full min-h-16 h-16 sm:border-b border-c f-center-between'>
             <MainSearchBox state={{SEARCH_BOX_STATUS, set_SEARCH_BOX_STATUS}} />
+            {screenWidth ? <BackBtn func={() => setCurrentChat({ translate: 'translate-x-full' })} /> : <></>} 
 
-            <div onClick={() => set_PROFILE_DISPLAY_STATUS(true)} id='chat-info' className='f-start pl-4 h-full w-full mr-4 hover:bg-lightMode_lightC cursor-pointer hover'>
+            <div onClick={() => set_PROFILE_DISPLAY_STATUS(true)} id='chat-info' className='f-start sm:pl-3 pl-2 h-full w-full mr-2 hover:bg-lightMode_lightC cursor-pointer hover'>
                 <Avatar imageSrc={avatar_} size='11' />
                 <h3 className='chat-name'>Node js</h3>
             </div>
-            <div className='w-20 h-full f-center mr-4'>
-                <button 
+            <div className='w-20 h-full f-center mr-3'>
+                <span 
                     className='default-btn'
                     onClick={() => set_SEARCH_BOX_STATUS(true)}
                 >
@@ -28,7 +30,7 @@ const MainHeader = () => {
                         icon={faSearch} 
                         className='icon-c text-xl' 
                     />
-                </button>
+                </span>
                 
                 <Menu 
                     data={{

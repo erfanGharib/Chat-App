@@ -52,7 +52,7 @@ code {
   @apply text-lg font-medium text-darkMode_toLightC dark:text-neutral-200;
 }
 .default-btn {
-  @apply hover:bg-lightMode_lightC hover f-center rounded-c py-2.5 px-3 transition-colors duration-300;
+  @apply hover:bg-lightMode_lightC hover f-center rounded-c py-3 px-3 transition-colors duration-300;
 }
 .rounded-c {
   @apply rounded-xl
@@ -67,17 +67,17 @@ code {
   @apply border-lightMode_darkC dark:border-darkMode_toLightC;
 }
 .side-bar {
-  @apply relative border-c sm:w-2/6 text-neutral-400 dark:bg-darkMode_lightC bg-lightMode_toLightC w-full sm:min-w-320 sm:max-w-320 h-full;
+  @apply relative border-c text-neutral-400 dark:bg-darkMode_lightC bg-lightMode_toLightC sm:min-w-320 sm:max-w-320 w-full h-full;
 }
 .side-bar-header {
-  @apply h-16 z-10 w-full p-3 dark:bg-darkMode_lightC bg-lightMode_toLightC top-0 flex items-center justify-between;
+  @apply h-16 z-10 w-full dark:bg-darkMode_lightC bg-lightMode_toLightC top-0 flex items-center justify-between;
 }
 .max-w-0 {
   max-width: 0 !important;
   min-width: 0 !important;
 }
 .primary-btn {
-  @apply bg-sky-500 hover:bg-sky-600 active:bg-sky-700 text-lightMode_lightC;
+  @apply !bg-sky-500 !border-0 hover:bg-sky-600 active:bg-sky-700 text-lightMode_lightC;
 }
 .send-btn > * {
   @apply text-sky-500;
@@ -133,7 +133,10 @@ code {
   @apply absolute bg-darkMode_darkC w-full h-full f-center z-20 bg-opacity-90;
 }
 #reportBugForm > * {
-  @apply rounded-c w-full py-2 px-3 my-1 border-neutral-100 border overflow-hidden
+  @apply rounded-c w-full py-2 px-3 my-1 bg-transparent dark:border-darkMode_toLightC border-neutral-200 border overflow-hidden
+}
+input, textarea {
+  @apply focus:shadow-c dark:focus:shadow-c shadow-transparent outline-none transition-shadow duration-200
 }
 #signInForm > * {
   @apply w-full mb-3 rounded-c;
@@ -146,4 +149,11 @@ input, select {
 }
 .sidebar-section {
   @apply bg-lightMode_toLightC dark:bg-darkMode_lightC shadow-sm;
+}
+.focus\:shadow-c:focus {
+  box-shadow: 0 0 0 5px #22222211;
+  @apply bg-lightMode_toLightC dark:bg-darkMode_lightC;
+}
+.dark .dark\:focus\:shadow-c:focus {
+  box-shadow: 0 0 0 5px rgb(64 64 64);
 }

@@ -18,9 +18,17 @@ module.exports = {
     extend: {
       minWidth: {
         320: '320px',
+        640: '640px',
+        200: '200%'
       },
       maxWidth: {
         320: '320px'
+      },
+      minHeight: {
+        16: '4rem'
+      },
+      transitionDuration: {
+        c: '300ms'
       },
       colors: {
         darkMode_toLightC: 'rgb(64 64 64)',

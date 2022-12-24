@@ -1,20 +1,23 @@
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useContext } from 'react';
 import { AppData } from '../../pages/chatApp';
+import Setting from './setting';
+import Contacts from './contacts';
+import BackBtn from '../../components/backBtn';
 
 const PushSlide = props => {
-    const {PUSH_SLIDE_DISPLAY_STATUS, set_PUSH_SLIDE_DISPLAY_STATUS} = useContext(AppData);
+    const {pushSlideData, setPushSlideData} = useContext(AppData);
 
+    let pushSlideContent;
+    if(pushSlideData.status) pushSlideContent = <Contacts />;
+    else if(pushSlideData.status === false) pushSlideContent = <Setting />;
+    
     return (
-        <div id='push-slide' className={`dark:bg-darkMode_lightC bg-lightMode_toLightC z-10 min-w-320 w-80 h-full transition-transform duration-300 ${PUSH_SLIDE_DISPLAY_STATUS ? '-translate-x-1/2' : 'translate-x-1/2'} transform`}>
+        <div id='push-slide' className={`dark:bg-darkMode_lightC bg-lightMode_toLightC z-10 w-1/2 min-w-320 h-full`}>
             <div id='profileSidebar-header' className='side-bar-header bg-lightMode_lightC'>
-                <button id='back-btn' className='default-btn mr-2' onClick={() => set_PUSH_SLIDE_DISPLAY_STATUS(false)}>
-                    <FontAwesomeIcon icon={faArrowLeft} size={'lg'} />
-                </button>
-                <h1 className='text-xl text-darkMode_toLightC dark:text-lightMode_toDarkC mr-auto mb-1'>Setting</h1>
+                <BackBtn func={() => setPushSlideData({ translate: '-translate-x-0' })} /> 
+                <h1 className='text-xl text-darkMode_toLightC dark:text-lightMode_toDarkC mr-auto mb-1 ml-3'>Setting</h1>
             </div>
-            {props.children}
+            {pushSlideContent}
         </div>
     );
 }
