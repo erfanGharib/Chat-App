@@ -2,7 +2,6 @@ import React, { useContext, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBell, faEllipsisVertical, faSearch, faTrash } from '@fortawesome/free-solid-svg-icons';
 import Avatar from '../avatar';
-import avatar_ from '../../assets/avatar.jpg';
 import Menu from '../menu/menu'; 
 import { AppData } from '../../pages/chatApp';
 import MainSearchBox from './mainSearchBox';
@@ -18,7 +17,7 @@ const MainHeader = () => {
             {screenWidth ? <BackBtn func={() => setCurrentChat({ translate: 'translate-x-full' })} /> : <></>} 
 
             <div onClick={() => set_PROFILE_DISPLAY_STATUS(true)} id='chat-info' className='f-start sm:pl-3 pl-2 h-full w-full mr-2 hover:bg-lightMode_lightC cursor-pointer hover'>
-                <Avatar imageSrc={avatar_} size='11' />
+                <Avatar size='11' />
                 <h3 className='chat-name'>Node js</h3>
             </div>
             <div className='w-20 h-full f-center mr-3'>

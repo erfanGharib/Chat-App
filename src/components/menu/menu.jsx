@@ -10,7 +10,7 @@ const Menu = ({data}) => {
 
     return (
         <div id='menu' className='relative'>
-            <span onClick={openMenu} className='default-btn mr-3'>
+            <span onClick={openMenu} className='default-btn'>
                 <FontAwesomeIcon icon={data.ico} size='lg' className='icon-c' />
             </span>
             <ul 

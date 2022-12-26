@@ -4,10 +4,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const MenuItems = ({data}) => {
     // render chatSidbar menuItems
     // get item data from 'data' param
-    const {text_, func, ico, color, checkBox} = data;
+    const {text_, func, ico, color, checkBox, key} = data;
     return (
         <li 
             onClick={func} 
+            key={key}
             htmlFor="small-toggle" 
             className={`${color} cursor-pointer menu-item text-darkMode_lightC text-sm font-medium dark:text-neutral-200 z-10 py-1.5 px-2 rounded-c hover items-center flex`}
         >

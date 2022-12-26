@@ -4,8 +4,14 @@
 4. chat messageBox ✔
 5. responsive ✔
 6. setting pushSlide
-7. contact pushSlide
+7. contact pushSlide ✔
 8. report bug modal ✔
 9. singIn page ✔
 10. chatSidebar search
 11. load chat on mobile ✔
+12. contact n chats - searchBox
+
+search
+
+fix font - comment - search - make chatItems component dynamic
+http://localhost:3000/static/media/Vazir-Variable.94c8d5bfe8d3996de0d0.ttf

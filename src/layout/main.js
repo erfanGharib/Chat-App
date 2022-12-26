@@ -5,11 +5,11 @@ import MessageListItem from '../components/main/message-list-item';
 import MessageBox from '../components/main/message-box';
 
 const Main = () => {
-    const { currentChat, setContentLoaded } = useContext(AppData);
+    const { currentChat, /*setContentLoaded*/ } = useContext(AppData);
 
     return (
         <main 
-            onLoad={() => setContentLoaded(true)} 
+            // onLoad={() => setContentLoaded(true)} 
             className={`${currentChat.translate} sm:relative absolute top-0 transform md:transform-none  duration-300 flex flex-col dark:bg-darkThemePattern bg-lightThemePattern w-full sm:min-w-max h-full min-w-0 overflow-hidden dark:bg-darkMode_lightC bg-lightMode_toLightC`}
         >
             <MainHeader />

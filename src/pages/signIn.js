@@ -1,8 +1,9 @@
-import { createContext, useState } from 'react';
+import { useState } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import EnterPhoneNumber from '../components/signIn/enterPhoneNumber';
 import EnterCode from '../components/signIn/enterCode';
+import signInBg from '../assets/signInBg.jpg';
 
 const SignIn = () => {
     const [IS_PHONE_NUMBER_CONFIRM, set_IS_PHONE_NUMBER_CONFIRM] = useState(true);
@@ -27,7 +28,7 @@ const SignIn = () => {
                 </form>
             </div>
 
-            <div className='h-full bg-signInBg bg-cover w-1/2 md:flex hidden'></div>
+            <div className='h-full bg-cover w-1/2 md:flex hidden' style={{backgroundImage:`url(${signInBg})`}}></div>
         </>
     );
 }

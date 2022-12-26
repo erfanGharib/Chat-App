@@ -46,7 +46,6 @@ module.exports = {
       backgroundImage: {
         'darkThemePattern': "url('/src/assets/darkModeBg.jpg')",
         'lightThemePattern': "url('/src/assets/lightModeBg.png')",
-        'signInBg': "url('/src/assets/signInBg.jpg')",
       }
     },
   },

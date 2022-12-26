@@ -1,11 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import ProfileInfoExtra from '../../components/profile-sidebar/profileInfo-extra';
 import ProfileInfo from '../../components/profile-sidebar/profileInfo';
 import { faAt, faCircleInfo, faPhone, faGear, faBell, faLanguage } from '@fortawesome/free-solid-svg-icons';
+import SideBarHeader from '../../components/sideBarHeader';
+import { AppData } from '../../pages/chatApp';
 
 const Setting = () => {
+    const { setPushSlideData } = useContext(AppData);
+
     return (
         <div id='setting' className='w-full h-full dark:!bg-darkMode_darkC !bg-lightMode_lightC'>
+            <SideBarHeader 
+                backBtnFunc={() => setPushSlideData({ translate: '-translate-x-0' })}
+                content={
+                    <h1 className='text-xl ml-3 text-darkMode_toLightC dark:text-lightMode_toDarkC mr-auto'>
+                        Setting
+                    </h1>
+                }
+            />
             <div className='sidebar-section pb-3 mb-2.5'>
                 <ProfileInfo profileType seenTime='last seen recently' userName='Erfan' />
                 <ProfileInfoExtra
