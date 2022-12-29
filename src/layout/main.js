@@ -4,7 +4,7 @@ import MessageBox from '../components/main/message-box';
 import { useSelector } from 'react-redux';
 
 const Main = () => {
-    const { status: IS_CHATBOX_DISPLAYED } = useSelector(state => state.$_userChat);
+    const { status: IS_CHATBOX_DISPLAYED } = useSelector(state => state.$_main);
 
     return (
         <main 

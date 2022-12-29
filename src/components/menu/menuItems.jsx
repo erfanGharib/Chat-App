@@ -10,7 +10,6 @@ const MenuItems = ({data}) => {
         <label 
             onClick={func} 
             key={key}
-            // htmlFor="small-toggle"
             className={`${color} select-none cursor-pointer menu-item text-darkMode_lightC text-sm font-medium dark:text-neutral-200 z-10 py-1.5 px-2 rounded-c hover items-center flex`}
         >
             <FontAwesomeIcon icon={ico} className={`${color} text-neutral-400 mr-3`} />

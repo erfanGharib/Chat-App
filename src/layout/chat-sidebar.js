@@ -1,6 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faBug, faGear, faMoon, faPen, faUser } from '@fortawesome/free-solid-svg-icons';
-import ChatItem from '../components/chat-item';
 import PushSlide from './push-slides/push-slide';
 import Menu from '../components/menu/menu';
 import SearchBox from '../components/searchBox';
@@ -8,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { showPushSlide } from '../store/reducers/_pushSlideData';
 import { changeTheme } from '../store/reducers/_theme';
 import { showModal } from '../store/reducers/_reportBugModal';
+import ChatItem from '../components/chat-item';
 
 export let avatarImg;
 const ChatSideBar = () => {
@@ -15,10 +15,10 @@ const ChatSideBar = () => {
 
     const { IS_DARK_MODE } = useSelector(state => state.$_theme);
     const htmlClass = document.documentElement.classList;
-    if(IS_DARK_MODE) htmlClass.add('dark');
+    if (IS_DARK_MODE) htmlClass.add('dark');
     else htmlClass.remove('dark');
-    
-    const { data: userChat } = useSelector(state => state.$_userChat);
+
+    const { data: userChat, firstState } = useSelector(state => state.$_userChat);
 
     return (
         <div id='chat-sidebar' className='border-r overflow-hidden side-bar relative'>
@@ -36,12 +36,10 @@ const ChatSideBar = () => {
                             ]
                         }}
                     />
-                    <SearchBox
-                        userChats={userChat}
-                    />
+                    <SearchBox firstState={firstState} />
                 </div>
 
-                <div id='sidebar-messages'>
+                <div id='sidebar-chats'>
                     {
                         userChat.map((chat) => {
                             return <ChatItem data={chat} key={chat.id} />

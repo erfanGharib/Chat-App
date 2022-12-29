@@ -10,8 +10,3 @@
 10. chatSidebar search
 11. load chat on mobile ✔
 12. contact n chats - searchBox
-
-search
-
-fix font - comment - search - make chatItems component dynamic
-http://localhost:3000/static/media/Vazir-Variable.94c8d5bfe8d3996de0d0.ttf

@@ -1,35 +1,38 @@
-import React, { useContext, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
-import { AppData } from '../pages/chatApp';
+import { useDispatch } from 'react-redux';
+import { setUserChat } from '../store/reducers/_userChat';
 
 const SearchBox = props => {
-    const { inputPlaceholder = 'Search', userChats, setUserChats, prevUserData } = props;
-    // const { setUserData, userData } = useContext(AppData);
-    
-    // const [SEARCH_BOX_STATUS, set_SEARCH_BOX_STATUS] = useState(false);
+    const { inputPlaceholder = 'Search', firstState } = props;
+    const dispatch = useDispatch();
+
+    /**
+     * @issue = when user search on any part of data, 
+     * data will completely replace with new one
+     * and we will'nt have the firstState of it
+     * therefore user can't access to firstState, when search deleted
+     * 
+     * @solution = we put the initalState out of the slice in redux-toolkit
+     * and we made two copy of it,
+     * firstState that we search on - it will never change
+     * data that we show to user and it will be changed
+     * 
+     * with this solution actually we get backup from our data
+     * to access it when we want
+     * 
+     * redux file example: './src/store/reducers/_userChat.js'
+     */
     const search = inputValue => {
-        const newData = userChats.filter(({ title }) => {
+        const newData = firstState.filter(({ title }) => {
             return title.toLowerCase().includes(inputValue);
         });
 
-        // full copy of userChats
-        let newUserChats = JSON.parse(JSON.stringify(userChats));
-        newUserChats = newData;
-        setUserChats(newUserChats);
-        console.log(prevUserData);
+        dispatch(setUserChat(newData));
     }
 
     return (
         <>
-            {/* <div 
-                className={`
-                    ${SEARCH_BOX_STATUS ? 'flex' : 'hidden'} 
-                    absolute z-10 w-full h-full dark:bg-darkMode_lightC bg-lightMode_toLightC top-0 right-0
-                `}
-            >
-            </div> */}
-
             <label htmlFor="search-box" className='h-11 w-full ml-3 z-20 relative'>
                 <FontAwesomeIcon
                     // icon={SEARCH_BOX_STATUS ? faArrowLeft : faSearch} 

@@ -8,6 +8,7 @@ import { useDispatch } from 'react-redux';
 import { screenWidth } from '../../pages/chatApp';
 import { hideUserChat } from '../../store/reducers/_userChat';
 import { showProfileSidebar } from '../../store/reducers/_profileSidebar';
+import { hideMain } from '../../store/reducers/_main';
 
 const MainHeader = () => {
     const dispatch = useDispatch();
@@ -17,7 +18,7 @@ const MainHeader = () => {
             {/* <MainSearchBox /> */}
             {
                 screenWidth ?
-                    <BackBtn func={() => dispatch(hideUserChat())} /> :
+                    <BackBtn func={() => dispatch(hideMain())} /> :
                     <></>
             }
 

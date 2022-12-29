@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { showUserChat } from '../store/reducers/_userChat';
+import { showMain } from '../store/reducers/_main';
 import Avatar from './avatar';
 
 const ChatItem = ({ data }) => {
@@ -15,7 +15,7 @@ const ChatItem = ({ data }) => {
 
     return (
         <div
-            onClick={() => dispatch(showUserChat())}
+            onClick={() => dispatch(showMain())}
             key={id}
             className='chat-item w-full p-2 rounded-c flex hover:bg-lightMode_lightC hover cursor-pointer'
         >
