@@ -1,17 +1,16 @@
-import React, { useContext } from 'react';
-import { AppData } from '../../pages/chatApp';
 import Setting from './setting';
 import Contacts from './contacts';
+import { useSelector } from 'react-redux';
 
 const PushSlide = props => {
-    const {pushSlideData} = useContext(AppData);
+    const { status, translate } = useSelector(state => state.$_pushSlideData);
 
     let pushSlideContent;
-    if(pushSlideData.status) pushSlideContent = <Contacts />;
-    else if(pushSlideData.status === false) pushSlideContent = <Setting />;
+    if(status) pushSlideContent = <Contacts />;
+    else if(status === false) pushSlideContent = <Setting />;
     
     return (
-        <div id='push-slide' className={`dark:bg-darkMode_lightC bg-lightMode_toLightC z-10 w-1/2 min-w-320 h-full`}>
+        <div id='push-slide' className={`${translate} duration-300 transform transition-transform absolute top-0 z-20 dark:bg-darkMode_lightC bg-lightMode_toLightC w-full h-full`}>
             {pushSlideContent}
         </div>
     );

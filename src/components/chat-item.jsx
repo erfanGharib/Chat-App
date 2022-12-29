@@ -1,5 +1,5 @@
-import React, { useContext } from 'react';
-import { AppData } from '../pages/chatApp';
+import { useDispatch } from 'react-redux';
+import { showUserChat } from '../store/reducers/_userChat';
 import Avatar from './avatar';
 
 const ChatItem = ({ data }) => {
@@ -11,16 +11,11 @@ const ChatItem = ({ data }) => {
         newMessagesNumber,
         lastMessage
     } = data;
-    const { setCurrentChat, screenWidth } = useContext(AppData);
+    const dispatch = useDispatch();
 
     return (
         <div
-            onClick={() =>
-                setCurrentChat({
-                    translate: 'translate-x-0',
-                    id: 0
-                })
-            }
+            onClick={() => dispatch(showUserChat())}
             key={id}
             className='chat-item w-full p-2 rounded-c flex hover:bg-lightMode_lightC hover cursor-pointer'
         >

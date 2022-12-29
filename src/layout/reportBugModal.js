@@ -1,16 +1,19 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClose } from '@fortawesome/free-solid-svg-icons';
-import { AppData } from '../pages/chatApp';
 import axios from 'axios';
 import { baseURL } from '..';
-import sendFile from '../middleware/sendFile'; 
+import sendFile from '../middleware/sendFile';
+import { useDispatch, useSelector } from 'react-redux';
+import { hideModal } from '../store/reducers/_reportBugModal';
 
 const ReportBugModal = () => {
-    const { REPORT_BUG_MODAL_DISPLAY_STATUS, set_REPORT_BUG_MODAL_DISPLAY_STATUS } = useContext(AppData);
+    const dispatch = useDispatch();
     const reportBugForm = React.createRef();
     // set file when user choosed one
     const [file, setFile] = useState('');
+
+    const { status } = useSelector(state => state.$_reportBugModal);
 
     /** 
      * send text data using @sendReportBugData
@@ -22,25 +25,25 @@ const ReportBugModal = () => {
             `${baseURL}/api/reportbug`,
             Object.values(reportBugForm.current).map(v => v.value).splice(0, 3)
         )
-        .then(res => console.log(res));
+            .then(res => console.log(res));
 
         sendFile(e, file);
     }
 
     return (
-        REPORT_BUG_MODAL_DISPLAY_STATUS ?
+        status ?
             <div className='overlay'>
                 <div id='ReportBugModal' className='w-80 dark:bg-darkMode_lightC bg-lightMode_toLightC rounded-c'>
                     <div className='f-center-between w-full h-14 border-c p-2'>
                         <h3 className='ml-2'>Report Bug</h3>
                         <span
                             className='default-btn'
-                            onClick={() => set_REPORT_BUG_MODAL_DISPLAY_STATUS(false)}
+                            onClick={() => dispatch(hideModal())}
                         >
                             <FontAwesomeIcon icon={faClose} size={'lg'} className='icon-c' />
                         </span>
                     </div>
-                    
+
                     <form
                         className='pb-2 px-3 f-start flex-col'
                         id='reportBugForm'

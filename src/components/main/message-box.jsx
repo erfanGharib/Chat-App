@@ -57,7 +57,7 @@ const MessageBox = () => {
                 </span>
             </div>
 
-            <span id='send-btn' ref={sendBtnRef} className={`${messageBoxBtn[1]} text-center w-14 shadow-lg rounded-c py-3.5 dark:bg-darkMode_lightC bg-lightMode_toLightC transition-colors duration-50`}>
+            <span id='send-btn' ref={sendBtnRef} className={`${messageBoxBtn[1]} text-center w-14 shadow-lg rounded-c py-3.5 dark:bg-darkMode_lightC bg-lightMode_toLightC`}>
                 <FontAwesomeIcon icon={messageBoxBtn[0]} className='text-xl icon-c' />
             </span>
         </div>
