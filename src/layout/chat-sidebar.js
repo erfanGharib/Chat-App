@@ -8,6 +8,7 @@ import { showPushSlide } from '../store/reducers/_pushSlideData';
 import { changeTheme } from '../store/reducers/_theme';
 import { showModal } from '../store/reducers/_reportBugModal';
 import ChatItem from '../components/chat-item';
+import { setUserChat } from '../store/reducers/_userChat';
 
 export let avatarImg;
 const ChatSideBar = () => {
@@ -36,7 +37,7 @@ const ChatSideBar = () => {
                             ]
                         }}
                     />
-                    <SearchBox firstState={firstState} />
+                    <SearchBox setData={setUserChat} firstState={firstState} />
                 </div>
 
                 <div id='sidebar-chats'>

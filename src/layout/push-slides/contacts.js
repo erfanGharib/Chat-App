@@ -3,28 +3,25 @@ import SearchBox from '../../components/searchBox';
 import SideBarHeader from '../../components/sideBarHeader';
 import Users from '../../components/users';
 import { hidePushSlide } from '../../store/reducers/_pushSlideData';
+import { setUserContacts } from '../../store/reducers/_userContacts';
 
 const Contacts = () => {
+    const { data, firstState } = useSelector(state => state.$_userContacts);
     const dispatch = useDispatch();
-    
+
     return (
         <div id='contacts' className=''>
-            <SideBarHeader 
+            <SideBarHeader
                 backBtnFunc={() => dispatch(hidePushSlide())}
-                content={<SearchBox inputPlaceholder='Search contacts' />}
+                content={
+                    <SearchBox
+                        inputPlaceholder='Search contacts'
+                        setData={setUserContacts}
+                        firstState={firstState}
+                    />
+                }
             />
-            <Users
-                members={[
-                    {
-                        userName: 'Erfan',
-                        seenTime: 'last seen recently'
-                    },
-                    {
-                        userName: 'Ali',
-                        seenTime: 'last seen recently'
-                    },
-                ]}
-            />
+            <Users members={data} />
         </div>
     );
 }

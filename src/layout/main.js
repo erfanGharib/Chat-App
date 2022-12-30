@@ -8,7 +8,7 @@ const Main = () => {
 
     return (
         <main 
-            className={`${IS_CHATBOX_DISPLAYED ? 'translate-x-0' : 'translate-x-full'} z-30 sm:relative transition-transform absolute top-0 transform md:transform-none duration-300 flex flex-col dark:bg-darkThemePattern bg-lightThemePattern w-full sm:min-w-max h-full min-w-0 overflow-hidden dark:bg-darkMode_lightC bg-lightMode_toLightC`}
+            className={`${IS_CHATBOX_DISPLAYED ? 'translate-x-0' : 'translate-x-full'} z-30 sm:relative transition-transform absolute top-0 transform sm:transform-none duration-300 flex flex-col dark:bg-darkThemePattern bg-lightThemePattern w-full sm:min-w-max h-full min-w-0 overflow-hidden dark:bg-darkMode_lightC bg-lightMode_toLightC`}
         >
             <MainHeader />
             <MessageListItem

@@ -12,14 +12,14 @@ import { hideMain } from '../../store/reducers/_main';
 
 const MainHeader = () => {
     const dispatch = useDispatch();
-
+    
     return (
         <div id='main-header' className='f-center relative dark:bg-darkMode_lightC bg-lightMode_toLightC w-full min-h-16 h-16 sm:border-b border-c f-center-between'>
             {/* <MainSearchBox /> */}
             {
                 screenWidth ?
-                    <BackBtn func={() => dispatch(hideMain())} /> :
-                    <></>
+                <BackBtn func={() => dispatch(hideMain())} /> :
+                <></>
             }
 
             <div

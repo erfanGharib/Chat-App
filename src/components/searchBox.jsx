@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { setUserChat } from '../store/reducers/_userChat';
 
 const SearchBox = props => {
-    const { inputPlaceholder = 'Search', firstState } = props;
+    const { inputPlaceholder = 'Search', firstState, setData } = props;
     const dispatch = useDispatch();
 
     /**
@@ -24,11 +24,15 @@ const SearchBox = props => {
      * redux file example: './src/store/reducers/_userChat.js'
      */
     const search = inputValue => {
-        const newData = firstState.filter(({ title }) => {
-            return title.toLowerCase().includes(inputValue);
+        /** 
+         * get second property of data object and compare it with inputValue
+         * second property is the "title of chat" or "contacts user name"
+         */
+        const newData = firstState.filter(dataObj => {
+            return Object.values(dataObj)[1].toLowerCase().includes(inputValue);
         });
 
-        dispatch(setUserChat(newData));
+        dispatch(setData(newData));
     }
 
     return (

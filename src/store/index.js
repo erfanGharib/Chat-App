@@ -5,11 +5,13 @@ import { $_profileSidebar } from './reducers/_profileSidebar';
 import { $_reportBugModal } from './reducers/_reportBugModal';
 import { $_theme } from './reducers/_theme';
 import { $_main } from './reducers/_main';
+import { $_userContacts } from './reducers/_userContacts';
 
 const store = configureStore({
     reducer: {
         $_main: $_main.reducer,
         $_userChat: $_userChat.reducer,
+        $_userContacts: $_userContacts.reducer,
         $_pushSlideData: $_pushSlideData.reducer,
         $_profileSidebar: $_profileSidebar.reducer,
         $_reportBugModal: $_reportBugModal.reducer,
