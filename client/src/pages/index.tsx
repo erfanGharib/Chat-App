@@ -1,5 +1,4 @@
 import Btn from '@/components/btn';
-import { getCookie } from 'cookies-next';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useRef } from 'react';
@@ -9,9 +8,9 @@ export default function Home() {
     const router = useRouter();
     let link = useRef('/signIn');
 
-    if (getCookie('userToken')) {
+    // if (getCookie('userToken')) {
         link.current = '/app';
-    }
+    // }
 
     return (
         <>

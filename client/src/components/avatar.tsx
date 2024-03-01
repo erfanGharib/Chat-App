@@ -1,8 +1,8 @@
+import { T_AppStoreReducers } from "@/types/T_AppStoreReducers";
 import Image from "next/image";
 import { useSelector } from "react-redux";
 import lightAvatar from '../assets/avatar.svg';
 import darkAvatar from '../assets/dark-avatar.svg';
-import { T_AppStoreReducers } from "@/types/T_AppStoreReducers";
 
 interface T_AvatarProps {
     imageSrc?: string, 

@@ -1,7 +1,7 @@
-import React from 'react';
+import { T_UserMsg } from '../../../../shared/types/user/T_UserMsg';
 import Avatar from '../avatar';
 
-const MessageList = ({ data }) => {
+const MessageList = ({ data }: { data: Array<T_UserMsg> }) => {
     // const {userName, messageText, messageMeta, chatType} = props;
 
     /**
@@ -11,12 +11,12 @@ const MessageList = ({ data }) => {
         @Types
         Group Chat = 2
         Private Chat = 1 
-        Private Chat --client = 0 
+        Private Chat - client = 0 
     */
 
     return (
-        <div id='message-list' className='w-full h-full max-w-xl mx-auto px-4'>
-            <div id='massage-list' className='w-full h-full overflow-y-auto flex flex-col py-2 justify-end'>
+        <div id='message-list' className='w-full h-full overflow-y-scroll border max-w-xl mx-auto px-4'>
+            <div id='massage-list' className='w-full flex flex-col py-2 justify-end'>
                 {
                     data.map(({ userName, messageText, messageMeta, chatType }, i) => {
                         const className_ = chatType === 0 ?

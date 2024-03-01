@@ -1,10 +1,8 @@
 import { Provider } from 'react-redux';
-import ChatSideBar from '../layout/chatSidebar';
 import Main from '../layout/main';
 import ProfileSideBar from '../layout/profileSidebar';
 import ReportBugModal from '../layout/reportBugModal';
 // import appStore from '@/stores/appStore';
-import axios from 'axios';
 import { getCookie } from 'cookies-next';
 import { NextApiRequest, NextApiResponse } from 'next';
 import Head from 'next/head';
@@ -17,6 +15,13 @@ import appStore from '../stores/appStore';
  * else render 403 page
 **/
 const ChatApp = ({ statusCode }) => {
+    // axios
+    // .get(process.env.APP_URL)
+    // .then(res => {
+    //     console.log(res.data);
+        
+    // })
+
     return (
         <>
             <Head>
@@ -41,20 +46,20 @@ const ChatApp = ({ statusCode }) => {
 
 ChatApp.getInitialProps = (
     { req, res }:
-        { req: NextApiRequest, res: NextApiResponse }
+    { req: NextApiRequest, res: NextApiResponse }
 ) => {
     const userToken = getCookie('userToken', { req, res });
 
-    if (userToken) {
-        axios.post(
-            '/api/user',
-            { userToken }
-        )
-        req.statusCode = 200;
-        return { statusCode: 200 }
-    }
+    // if (userToken) {
+    //     axios.post(
+    //         '/api/user',
+    //         { userToken }
+    //     )
+    //     // req.statusCode = 200;
+    //     return { statusCode: 200 }
+    // }
 
-    req.statusCode = 403;
+    // req.statusCode = 403;
     return { statusCode: 403 }
 }
 

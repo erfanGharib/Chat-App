@@ -1,16 +1,16 @@
 import { setUserMsg } from '@/stores/appStore/reducers/_userMsg';
-import { T_AppStoreReducers } from '@/types/T_AppStoreReducers';
+import { getSocket } from '@/utils/getSocket';
 import { faFaceSmile } from '@fortawesome/free-regular-svg-icons';
-import { IconDefinition, faMicrophone, faPaperPlane, faPaperclip } from '@fortawesome/free-solid-svg-icons';
+import { faMicrophone, faPaperclip, faPaperPlane, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import EmojiPicker from 'emoji-picker-react';
 import React, { useRef, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Socket } from 'socket.io-client';
+import { useDispatch } from 'react-redux';
+import { T_ChatSocketEvents } from '../../../../shared/types/T_ChatSocketEvents';
+import { getTime } from '../../../../shared/utils/getTime';
 // import { ToolkitStore } from '@reduxjs/toolkit/dist/configureStore';
 
-const MessageBox = ({ socket }: { socket: Socket }) => {
-    const { data: msg } = useSelector((state: T_AppStoreReducers) => state.$_userMsg);
+const MessageBox = () => {
+    // const { data: msg } = useSelector((state: T_AppStoreReducers) => state.$_userMsg);
     const dispatch = useDispatch();
     const DisplayEmojiPicker: { current: boolean } = useRef(false);
     const messageInputRef: { current: HTMLInputElement } = useRef();
@@ -30,25 +30,19 @@ const MessageBox = ({ socket }: { socket: Socket }) => {
     const displayEmojiPicker = () => {
         DisplayEmojiPicker.current = !DisplayEmojiPicker.current;
     }
-    const getTime = () => {
-        let date = new Date;
-        return `${date.getHours()}:${date.getMinutes()}`;
-    }
 
     // send message to broad cast
     const sendMsg = () => {
-        socket.emit('createdMsg', msg);
-        
-        let msgCp = [...msg];
-        msgCp.push({ 
+        let msg = { 
             userName: 'erfan', 
             messageText: messageInputRef.current.value,
             messageMeta: getTime(),
             chatType: 2,
-        });
+        };
+
+        getSocket().emit<T_ChatSocketEvents>('newMessage', msg);
         
-        dispatch(setUserMsg(msgCp));
-        console.log(msg);
+        dispatch(setUserMsg(msg));
     }
 
     return (
@@ -108,7 +102,7 @@ const MessageBox = ({ socket }: { socket: Socket }) => {
                 ref={sendBtnRef}
                 className={`${messageBoxBtn[1]} f-center w-14 h-full shadow-lg rounded-t-c py-3.5 dark:bg-darkMode_lightC bg-lightMode_toLightC`}
             >
-                <FontAwesomeIcon icon={messageBoxBtn[0]} className='text-xl icon-c w-4.5' />
+                <FontAwesomeIcon icon={faPaperPlane} className='text-xl icon-c w-4.5' />
             </span>
         </div>
     );

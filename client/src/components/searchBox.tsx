@@ -1,7 +1,7 @@
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
-import { useDispatch } from 'react-redux';
 import { ActionCreatorWithPayload } from '@reduxjs/toolkit';
+import { useDispatch } from 'react-redux';
 
 const SearchBox = (
     { inputPlaceholder = 'Search', firstState, setData }:
@@ -30,7 +30,7 @@ const SearchBox = (
          * get second property of data object and compare it with inputValue
          * second property is the "title of chat" or "contacts userName"
          */
-        const newData = firstState.filter(dataObj => {
+        const newData = firstState.filter((dataObj: any[]) => {
             return Object.values(dataObj)[1]?.toLowerCase().includes(inputValue);
         });
 

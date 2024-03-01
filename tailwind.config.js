@@ -16,11 +16,11 @@ module.exports = {
   // purge: [],
 
   content: [
-    './src/**/**/*.{svg,html,js,tsx,ts}',
-    './src/**/*.{svg,html,js,tsx,ts}',
-    './src/components/**/*.{svg,html,js,jsx,tsx,ts}',
-    './src/components/**/**/*.{svg,html,js,jsx,tsx,ts}',
-    './src/assets/**/*.{svg,html,js,jsx,tsx,ts}',
+    './app/src/**/**/*.{svg,html,js,tsx,ts}',
+    './app/src/**/*.{svg,html,js,tsx,ts}',
+    './app/src/components/**/*.{svg,html,js,jsx,tsx,ts}',
+    './app/src/components/**/**/*.{svg,html,js,jsx,tsx,ts}',
+    './app/src/assets/**/*.{svg,html,js,jsx,tsx,ts}',
   ],
   theme: {
     extend: {

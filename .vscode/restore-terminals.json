@@ -1,0 +1,43 @@
+{    
+    "keepExistingTerminalsOpen": false,
+    "runOnStartup": true,
+    "terminals": [
+        {
+            "splitTerminals": [
+                {
+                    "name": "client:dev",
+                    "shouldRunCommands": false,
+                    "commands": ["npm run client:dev"]
+                },
+                {
+                    "name": "b:css:w",
+                    "shouldRunCommands": true,
+                    "commands": ["npm run b:css:w"]
+                }
+            ]
+        },
+        {
+            "splitTerminals": [
+                {
+                    "name": "api:start",
+                    "shouldRunCommands": false,
+                    "commands": ["npm run api:start"]
+                },
+                {
+                    "name": "api:build",
+                    "shouldRunCommands": false,
+                    "commands": ["npm run api:build"]
+                }
+            ]
+        },
+        {
+            "splitTerminals": [
+                {
+                    "name": "Terminal",
+                    "shouldRunCommands": false,
+                    "commands": []
+                }
+            ]
+        }
+    ]
+}

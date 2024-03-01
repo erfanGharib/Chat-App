@@ -1,16 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-// let data = []
 export const $_userMsg = createSlice({
     name: '_userChat',
     initialState: {
         data: []
-        // firstState: data
     },
     reducers: {
         setUserMsg: (state, { payload }) => {
-            // data = payload;
-            state.data = payload;
+            const dataCp = [...state.data];
+            dataCp.push(payload);
+
+            state.data = dataCp;
         }
     }
 });
