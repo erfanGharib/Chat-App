@@ -1,4 +1,6 @@
 export const getTime = () => {
-    let date = new Date;
-    return `${date.getHours()}:${date.getMinutes()}`;
+    const date = new Date();
+    const time = date.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
+
+    return time;
 }

@@ -1,12 +1,13 @@
-import { setUserMsg } from '@/stores/appStore/reducers/_userMsg';
-import { T_AppStoreReducers } from '@/types/T_AppStoreReducers';
-import { getSocket } from '@/utils/getSocket';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { T_ChatSocketEvents } from '../../../shared/types/T_ChatSocketEvents';
-import MainHeader from '../components/main/mainHeader';
-import MessageBox from '../components/main/message-box';
-import MessageList from '../components/main/message-list';
+import { T_SocketEventMap } from '../../../../shared/types/socket/T_SocketEventMap';
+import MainHeader from '../main/mainHeader';
+import MessageBox from '../main/message-box';
+import MessageList from '../main/message-list';
+import { setUserMsg } from '../../stores/appStore/reducers/_userMsg';
+import { T_AppStoreReducers } from '../../types/T_AppStoreReducers';
+import { T_UserChat } from '../../types/T_UserChat';
+import { getSocket } from '../../utils/getSocket';
 
 let runned = false;
 const Main = () => {
@@ -15,15 +16,20 @@ const Main = () => {
     const dispatch = useDispatch();
     
     useEffect(() => {
+        if(runned) return;
+        console.log('sdfsdf');
+        
         getSocket().on('connect', () => {
           console.log('Connected to WebSocket');
         });
-        if(runned) return;
-        getSocket().on<T_ChatSocketEvents>('onMessage', newmsg => {
+        
+        getSocket().on('newMessage', newmsg => {
+            console.log('on chat message');
+            
             dispatch(setUserMsg(newmsg));
         })
-        
-        runned = true;
+
+        runned = true
     }, [])
 
     return (

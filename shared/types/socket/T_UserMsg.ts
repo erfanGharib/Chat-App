@@ -1,6 +1,6 @@
 export interface T_UserMsg {
     userName: string,
     messageText: string,
-    messageMeta: `${string}:${string} ${'pm'|'am'}`,
+    messageMeta: string,
     chatType: 0 | 1 | 2,
 }

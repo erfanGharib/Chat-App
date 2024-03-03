@@ -1,12 +1,11 @@
-import { setUserMsg } from '@/stores/appStore/reducers/_userMsg';
-import { getSocket } from '@/utils/getSocket';
 import { faFaceSmile } from '@fortawesome/free-regular-svg-icons';
 import { faMicrophone, faPaperclip, faPaperPlane, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { T_ChatSocketEvents } from '../../../../shared/types/T_ChatSocketEvents';
 import { getTime } from '../../../../shared/utils/getTime';
+import { setUserMsg } from '../../stores/appStore/reducers/_userMsg';
+import { getSocket } from '../../utils/getSocket';
 // import { ToolkitStore } from '@reduxjs/toolkit/dist/configureStore';
 
 const MessageBox = () => {
@@ -37,16 +36,16 @@ const MessageBox = () => {
             userName: 'erfan', 
             messageText: messageInputRef.current.value,
             messageMeta: getTime(),
-            chatType: 2,
         };
 
-        getSocket().emit<T_ChatSocketEvents>('newMessage', msg);
-        
-        dispatch(setUserMsg(msg));
+        getSocket().emit('newMessage', { ...msg, chatType: 2 });
+        dispatch(setUserMsg({ ...msg, chatType: 0 }));
+
+        messageInputRef.current.value = '';
     }
 
     return (
-        <div id='massage-box' className='h-16 w-full max-w-xl mx-auto px-4 f-center-between'>
+        <div id='massage-box' className='sm:h-16 h-14 w-full max-w-xl mx-auto px-4 f-center-between'>
             <div className='dark:bg-darkMode_lightC shadow-lg h-full bg-lightMode_toLightC w-11/12 mr-2 px-4 rounded-t-c f-center-between'>
                 <div id='emoji-picker' className='relative'>
                     <span 

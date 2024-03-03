@@ -1,5 +1,5 @@
 {
     "ignore": ["./dist", "logs/*.log"],
-    "exec": "node ./dist/api/src/main.js",
+    "exec": "node ./dist/api/src/index.js",
     "ext": "ts,js"
 }

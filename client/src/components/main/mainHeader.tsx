@@ -26,17 +26,17 @@ const MainHeader = () => {
     }, []);
     
     return (
-        <div id='main-header' className='f-center relative dark:bg-darkMode_lightC bg-lightMode_toLightC w-full min-h-16 h-16 sm:border-b border-c f-center-between'>
+        <div id='main-header' className='relative dark:bg-darkMode_lightC bg-lightMode_toLightC w-full min-h-16 h-16 sm:border-b border-c f-center-between'>
             {/* <MainSearchBox /> */}
-            {
+            {/* {
                 screenWidth.current &&
                 <BackBtn func={() => dispatch(hideMain())} />
-            }
+            } */}
 
             <div
                 // onClick={() => dispatch(showProfileSidebar())}
                 id='chat-info'
-                className='f-start sm:pl-3 pl-2 h-full w-full mr-2 hover:bg-lightMode_lightC sm:cursor-pointer hover'
+                className='f-start pl-4 h-full w-full hover:bg-lightMode_lightC sm:cursor-pointer hover'
             >
                 {/* <Avatar size={11} /> */}
                 <h3 className='chat-name'>Broadcast</h3>
