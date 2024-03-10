@@ -3,10 +3,9 @@ import { env } from 'process';
 
 const isDevelopment = env.NODE_ENV === 'development';
 const setting = {
-    BEARER_KEYWORD: 'Bearer',
     isDevelopment,
     uploadsDir: path.join(process.cwd(), 'uploads'),
-    origin: isDevelopment ? env.LOCAL_CLIENT_URL : env.REMOTE_CLIENT_URL,
+    origin: `http://${isDevelopment ? env.LOCAL_CLIENT_DOMAIN + ':3000' : env.LOCAL_CLIENT_DOMAIN}`,
 }
 
 export default setting;

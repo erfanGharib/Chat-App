@@ -14,6 +14,6 @@ export const validateReqBody: T_ValidateReqBody = function (this, req, res, next
     .validate(req.body, { abortEarly: false })
     .then(() => next())
     .catch(({ errors }) => {
-        res.status(400).json(createHttpError(400, { errors }))
+        res.status(400).send(createHttpError(400, { errors }))
     })
 }

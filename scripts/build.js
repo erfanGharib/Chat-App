@@ -15,7 +15,7 @@ const logError = (condition = false, message = '') => {
 ;(async () => {
   const isWatch = process.argv[2] === '--watch';
   const swcMainFilePath = addRootPath('node_modules/@swc/cli/bin/swc.js');
-  const swcOpts = `./api/src shared -d ./api/dist ${isWatch ? '-w' : ''} --copy-files -C module.type=es6`.split(' ');
+  const swcOpts = `./api/src shared -d ./api/dist ${isWatch ? '-w' : ''} --copy-files -C module.type=commonjs`.split(' ');
   fs.removeSync(addRootPath('./dist'));
   // logError(
   //    !fs.existsSync(addRootPath('src')),
