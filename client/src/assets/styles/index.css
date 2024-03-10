@@ -23,6 +23,28 @@
   font-weight: 500;
 }
 
+input {
+  @apply px-4 py-3 rounded-md text-sm border-t-2 border-white border-opacity-5;
+}
+input.required {
+  content: '*';
+  @apply after:text-red-500;
+}
+.btn-tertiary {
+  @apply dark:bg-blue-700 dark:hover:bg-blue-600;
+}
+
+.btn-danger {
+  @apply text-red-600 bg-red-500 bg-opacity-30 border border-red-400 hover:bg-opacity-40;
+}
+/* .btn-success {
+  @apply text-green-600 bg-green-500 bg-opacity-30 border border-green-400 hover:bg-opacity-40;
+} */
+
+.btn-secondary {
+  @apply text-white border-t-2 border-white border-opacity-20 bg-sky-700 hover:bg-sky-600;
+}
+
 .f-center {
   @apply flex items-center justify-center;
 }
@@ -229,9 +251,9 @@ input[type=number] {
 .errMsg {
   @apply text-red-500 text-sm mt-0.5;
 }
-input, textarea {
+/* input, textarea {
   @apply focus:shadow-c dark:focus:shadow-c shadow-transparent outline-none transition-shadow duration-200
-}
+} */
 #signInForm > * {
   @apply w-full rounded-c;
 }

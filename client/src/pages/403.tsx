@@ -1,18 +1,17 @@
-import Head from 'next/head'
-import Link from 'next/link'
+import Head from "next/head";
+import Error from "../components/httpError";
 
-export default function PermissionDenied() {
-  return (
+const Page403 = () => (
     <>
-      <Head>
-        <title>403 error</title>
-        <meta name="description" content="403 error page" />
-      </Head>
-      <div className='m-5 flex-col flex'>
-        <h1>403</h1>
-        <p>Sorry, You have not permission to access this page</p>
-        <Link href='/' className='w-max-content p-2 mt-2 primary-btn'>home</Link>
-      </div>
+        <Head>
+            <title>403 | Forbidden</title>
+            <meta name="robots" content="noindex,nofollow" />
+            <meta name="description" content="Forbidden" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+        </Head>
+
+        <Error errCode={403} errMsg="You Don't have permission to access this page." />
     </>
-  )
-}
+)
+
+export default Page403;

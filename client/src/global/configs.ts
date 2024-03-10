@@ -1,3 +1,5 @@
+import axios from "axios";
+
 const baseUploadDir = 'uploads';
 const apiBaseUrl = 'http://192.168.1.70:5000';
 const apiUrlsObj = {
@@ -13,5 +15,8 @@ const apiUrlsObj = {
 export const configs = {
     baseUploadDir,
     apiBaseUrl,
-    apiUrlsObj
+    apiUrlsObj,
+    axios: axios.create({ 
+        baseURL: apiBaseUrl, 
+    })
 }

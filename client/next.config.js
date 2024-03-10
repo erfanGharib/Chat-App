@@ -2,6 +2,9 @@
 const nextConfig = {
   reactStrictMode: true,
   pageExtensions: ['mdx', 'md', 'jsx', 'js', 'tsx', 'ts'],
+  experimental: {
+    externalDir: true,
+  },
 }
 
-export default nextConfig;
+module.exports = nextConfig;
