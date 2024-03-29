@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux';
 import { showMain } from '../stores/appStore/reducers/_main';
 import Avatar from './avatar';
 import AvatarImg from '../assets/avatar.svg';
-import { T_UserChat } from '@/types/T_UserChat';
+import { T_UserChat } from '../types/T_UserChat';
 
 const ChatItem = ({
     id,
@@ -20,7 +20,7 @@ const ChatItem = ({
             key={id}
             className='select-none chat-item w-full p-2 rounded-c flex hover:bg-lightMode_lightC hover sm:cursor-pointer'
         >
-            <Avatar size={14} />
+            <Avatar size={'60px'} />
             <div id='info' style={{ width: 'calc(100% - 70px)' }}>
                 <div id='title' className='f-center-between'>
                     <h3 className='chat-name'>{title}</h3>
@@ -33,8 +33,8 @@ const ChatItem = ({
                 <div id='subtitle' className='w-full f-center-between'>
                     <p className='last-message text-ellipsis overflow-hidden whitespace-nowrap h-6'>
                         {
-                            IS_PRIVATE_CHAT ?
-                                <></> : <span className='sender-name font-medium text-darkMode_toLightC dark:text-neutral-200 opacity-80'>{lastMessage.sender}: </span>
+                            IS_PRIVATE_CHAT && 
+                            <span className='sender-name font-medium text-darkMode_toLightC dark:text-neutral-200 opacity-80'>{lastMessage.sender}: </span>
                         }
                         {lastMessage.text}
                     </p>
