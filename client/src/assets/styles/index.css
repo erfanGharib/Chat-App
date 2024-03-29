@@ -254,7 +254,7 @@ input[type=number] {
 /* input, textarea {
   @apply focus:shadow-c dark:focus:shadow-c shadow-transparent outline-none transition-shadow duration-200
 } */
-#signInForm > * {
+#signUpForm > * {
   @apply w-full rounded-c;
 }
 #error-messages > p {

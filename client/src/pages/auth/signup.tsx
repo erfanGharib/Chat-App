@@ -1,14 +1,14 @@
-import { authLoginSchema } from '../../../../shared/schemas/authSchema';
+import { authSignupSchema } from '../../../../shared/schemas/authSchema';
 import AuthForm from '../../components/authForm';
 import Layout from '../../components/layout';
 import MainHead from '../../components/mainHead';
 import useFormHandler from '../../utils/useFormHandler';
 
-const Login = () => {
+const Signup = () => {
     const { send } = useFormHandler({
-        endPoint: '/auth/login',
-        validationSchema: authLoginSchema,
-        onSuccess(res) {
+        endPoint: '/auth/signup',
+        validationSchema: authSignupSchema,
+        onSuccess() {
             setTimeout(() => {
                 location.replace('/app');
             }, 1000);
@@ -17,13 +17,13 @@ const Login = () => {
 
     return (
         <>
-            <MainHead title='Login' description='Login' />
+            <MainHead title='Signup' description='Signup' />
     
             <Layout>
-                <AuthForm isSignup={false} send={send} inputs={authLoginSchema} />
+                <AuthForm isSignup send={send} inputs={authSignupSchema} />
             </Layout>
         </>
     );
 }
 
-export default Login;
+export default Signup;

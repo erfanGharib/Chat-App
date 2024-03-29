@@ -772,10 +772,6 @@ video {
   display: inline-flex;
 }
 
-.grid {
-  display: grid;
-}
-
 .hidden {
   display: none;
 }
@@ -982,10 +978,6 @@ video {
           user-select: none;
 }
 
-.grid-cols-1 {
-  grid-template-columns: repeat(1, minmax(0, 1fr));
-}
-
 .flex-row {
   flex-direction: row;
 }
@@ -1012,6 +1004,15 @@ video {
 
 .justify-between {
   justify-content: space-between;
+}
+
+.gap-2 {
+  gap: 0.5rem;
+}
+
+.gap-x-3 {
+  -moz-column-gap: 0.75rem;
+       column-gap: 0.75rem;
 }
 
 .overflow-hidden {
@@ -1122,8 +1123,8 @@ video {
   border-bottom-color: rgb(14 165 233 / var(--tw-border-opacity));
 }
 
-.border-opacity-20 {
-  --tw-border-opacity: 0.2;
+.border-opacity-10 {
+  --tw-border-opacity: 0.1;
 }
 
 .\!bg-lightMode_lightC {
@@ -1138,6 +1139,11 @@ video {
 .bg-blue-400 {
   --tw-bg-opacity: 1;
   background-color: rgb(96 165 250 / var(--tw-bg-opacity));
+}
+
+.bg-darkMode_lightC {
+  --tw-bg-opacity: 1;
+  background-color: rgb(38 38 38 / var(--tw-bg-opacity));
 }
 
 .bg-lightMode_lightC {
@@ -1177,8 +1183,8 @@ video {
   --tw-bg-opacity: 0.95;
 }
 
-.bg-\[url\(\'\.\.\/lightModeBg\.jpg\'\)\] {
-  background-image: url('../lightModeBg.jpg');
+.bg-\[url\(\'\.\.\/images\/lightModeBg\.jpg\'\)\] {
+  background-image: url('../images/lightModeBg.jpg');
 }
 
 .bg-gradient-to-t {
@@ -1199,8 +1205,8 @@ video {
   padding: 0.75rem;
 }
 
-.p-4 {
-  padding: 1rem;
+.p-5 {
+  padding: 1.25rem;
 }
 
 .px-2 {
@@ -2116,7 +2122,7 @@ input[type=number] {
   @apply focus:shadow-c dark:focus:shadow-c shadow-transparent outline-none transition-shadow duration-200
 } */
 
-#signInForm > * {
+#signUpForm > * {
   width: 100%;
   border-radius: 0.75rem;
 }
@@ -2245,6 +2251,10 @@ input, select {
   --tw-bg-opacity: 0.6;
 }
 
+.hover\:underline:hover {
+  text-decoration-line: underline;
+}
+
 .focus\:\!shadow-none:focus {
   --tw-shadow: 0 0 #0000 !important;
   --tw-shadow-colored: 0 0 #0000 !important;
@@ -2319,8 +2329,8 @@ input, select {
   background-color: rgb(2 132 199 / var(--tw-bg-opacity));
 }
 
-:is(.dark .dark\:bg-\[url\(\'\.\.\/darkModeBg\.jpg\'\)\]) {
-  background-image: url('../darkModeBg.jpg');
+:is(.dark .dark\:bg-\[url\(\'\.\.\/images\/darkModeBg\.jpg\'\)\]) {
+  background-image: url('../images/darkModeBg.jpg');
 }
 
 :is(.dark .dark\:text-darkMode_lightC) {
@@ -2397,17 +2407,16 @@ input, select {
     height: 4rem;
   }
 
+  .sm\:w-11 {
+    width: 2.75rem;
+  }
+
   .sm\:w-12 {
     width: 3rem;
   }
 
   .sm\:w-4 {
     width: 1rem;
-  }
-
-  .sm\:w-max {
-    width: -moz-max-content;
-    width: max-content;
   }
 
   .sm\:transform-none {
@@ -2448,7 +2457,12 @@ input, select {
     max-width: 0px;
   }
 
-  .md\:grid-cols-2 {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .md\:flex-row {
+    flex-direction: row;
+  }
+
+  .md\:gap-x-5 {
+    -moz-column-gap: 1.25rem;
+         column-gap: 1.25rem;
   }
 }

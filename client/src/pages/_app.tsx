@@ -1,5 +1,4 @@
-import '../assets/styles/tailwind.css'
-// import '@/components/btn/btn.css'
+import '../assets/styles/tailwind.css';
 
 export default function App({ Component, pageProps }) {
   return <Component {...pageProps} />

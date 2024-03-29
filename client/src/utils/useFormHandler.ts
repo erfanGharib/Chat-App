@@ -1,8 +1,8 @@
-import T_ApiUrlsObj from '../types/T_ApiUrlsObj';
-import { AxiosError } from 'axios';
+import { AxiosError, AxiosResponse } from 'axios';
 import { FormEvent } from 'react';
 import * as Yup from 'yup';
 import { configs } from '../global/configs';
+import T_ApiUrlsObj from '../types/T_ApiUrlsObj';
 
 export type T_YupSchema = { [key: string]: Yup.StringSchema };
 export type T_Send = (e: FormEvent<HTMLFormElement>, method?: 'put' | 'post') => void;
@@ -10,7 +10,7 @@ type FormElements = [string, HTMLInputElement];
 type T_UseFormHandler = (args: {
     endPoint: T_ApiUrlsObj;
     validationSchema: T_YupSchema;
-    onSuccess?: () => void;
+    onSuccess?: (response: AxiosResponse) => void;
     onFailure?: () => void;
     onSubmit?: (formData: FormData, form: FormEvent<HTMLFormElement>) => Promise<any>;
     onError?: (reason: string) => void;
@@ -104,7 +104,7 @@ const useFormHandler: T_UseFormHandler = ({
                 data,
                 { withCredentials: true }
             )
-                .then(() => onSuccess())
+                .then((res) => onSuccess(res))
                 .catch((err: AxiosError) => {
                     // add response error to last p.err element in form
                     //@ts-ignore
